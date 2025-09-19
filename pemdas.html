@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>PEMDAS Pyramid</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background: #f7f7f7;
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 30px;
+    }
+    .row {
+      display: flex;
+      justify-content: center;
+    }
+    .box {
+      width: 80px;
+      height: 80px;
+      margin: 5px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 24px;
+      font-weight: bold;
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
+      user-select: none;
+    }
+    .box.used {
+      opacity: 0.4;
+      cursor: default;
+    }
+    #scoreboard {
+      margin-top: 20px;
+      font-size: 20px;
+    }
+    #rules {
+      margin-top: 30px;
+      padding: 20px;
+      background: #e8e8e8;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <h1>PEMDAS PYRAMID</h1>
+  <div class="container" id="gameBoard"></div>
+
+  <div id="scoreboard">
+    Current Score: <span id="score">0</span><br>
+    Target Score: <span id="target">21</span>
+  </div>
+
+  <button id="restartButton" style="margin-top: 20px;">Restart Game</button>
+
+  <div id="rules">
+    <h2>Game Rules</h2>
+    <p>The goal of the game is to reach the target score by using the operations provided. Each operation can only be used once.</p>
+    <ul>
+      <li><strong>Addition (+):</strong> Adds the specified value to your score.</li>
+      <li><strong>Subtraction (-):</strong> Subtracts the specified value from your score.</li>
+      <li><strong>Multiplication (x):</strong> Multiplies your score by the specified value.</li>
+    </ul>
+  </div>
+
+  <script>
+    // ✅ Easily changeable configuration
+    const config = {
+      target: 21,
+      rows: [
+        [ {label: "-1", op: "subtract", val: 1, color: "red"} ],
+        [ {label: "+1", op: "add", val: 1, color: "orange"},
+          {label: "x3", op: "multiply", val: 3, color: "gold"} ],
+        [ {label: "x2", op: "multiply", val: 2, color: "green"},
+          {label: "x4", op: "multiply", val: 4, color: "blue"},
+          {label: "+2", op: "add", val: 2, color: "purple"} ]
+      ]
+    };
+
+    let score = 0;
+    const scoreDisplay = document.getElementById("score");
+    const targetDisplay = document.getElementById("target");
+    targetDisplay.textContent = config.target;
+
+    const gameBoard = document.getElementById("gameBoard");
+
+    // Build the board dynamically
+    config.rows.forEach(rowData => {
+      const row = document.createElement("div");
+      row.classList.add("row");
+
+      rowData.forEach(boxData => {
+        const box = document.createElement("div");
+        box.classList.add("box");
+        box.textContent = boxData.label;
+        box.style.background = boxData.color;
+        box.dataset.op = boxData.op;
+        box.dataset.val = boxData.val;
+
+        // Add click behavior
+        box.addEventListener("click", () => {
+          if (box.classList.contains("used")) return;
+
+          const op = box.dataset.op;
+          const val = parseInt(box.dataset.val);
+
+          if (op === "add") score += val;
+          else if (op === "subtract") score -= val;
+          else if (op === "multiply") score *= val;
+
+          scoreDisplay.textContent = score;
+          box.classList.add("used");
+
+          // Check if game is done
+          if (document.querySelectorAll(".box:not(.used)").length === 0) {
+            setTimeout(() => {
+              if (score === config.target) {
+                alert("🎉 You win! Final Score: " + score);
+              } else {
+                alert("❌ Game Over! Final Score: " + score);
+              }
+            }, 200);
+          }
+        });
+
+        row.appendChild(box);
+      });
+
+      gameBoard.appendChild(row);
+    });
+
+    // Add restart functionality
+    function restartGame() {
+      score = 0;
+      scoreDisplay.textContent = score;
+      document.querySelectorAll(".box").forEach(box => {
+        box.classList.remove("used");
+      });
+    }
+
+    // Add a restart button
+    const restartButton = document.getElementById("restartButton");
+    restartButton.addEventListener("click", restartGame);
+  </script>
+</body>
+</html>

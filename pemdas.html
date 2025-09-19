@@ -47,6 +47,25 @@
       background: #e8e8e8;
       border-radius: 8px;
     }
+
+    /* Responsive Design */
+    @media (max-width: 600px) {
+      .container {
+        flex-direction: column; /* Stack rows vertically */
+      }
+      .box {
+        width: 60px; /* Adjust box size for smaller screens */
+        height: 60px;
+        font-size: 18px; /* Smaller font size */
+      }
+      #scoreboard {
+        font-size: 16px; /* Adjust scoreboard font size */
+      }
+      #rules {
+        font-size: 14px; /* Adjust rules font size */
+        padding: 10px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -91,6 +110,13 @@
 
     const gameBoard = document.getElementById("gameBoard");
 
+    // Add result indicator
+    const resultIndicator = document.createElement("span");
+    resultIndicator.id = "resultIndicator";
+    resultIndicator.style.marginLeft = "10px";
+    resultIndicator.style.fontSize = "20px";
+    scoreDisplay.parentNode.appendChild(resultIndicator);
+
     // Build the board dynamically
     config.rows.forEach(rowData => {
       const row = document.createElement("div");
@@ -120,13 +146,13 @@
 
           // Check if game is done
           if (document.querySelectorAll(".box:not(.used)").length === 0) {
-            setTimeout(() => {
-              if (score === config.target) {
-                alert("🎉 You win! Final Score: " + score);
-              } else {
-                alert("❌ Game Over! Final Score: " + score);
-              }
-            }, 200);
+            if (score === config.target) {
+              resultIndicator.textContent = "✔";
+              resultIndicator.style.color = "green";
+            } else {
+              resultIndicator.textContent = "✘";
+              resultIndicator.style.color = "red";
+            }
           }
         });
 
@@ -140,6 +166,7 @@
     function restartGame() {
       score = 0;
       scoreDisplay.textContent = score;
+      resultIndicator.textContent = "";
       document.querySelectorAll(".box").forEach(box => {
         box.classList.remove("used");
       });

@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PEMDAS Pyramid</title>
   <style>
     body {
@@ -20,13 +21,15 @@
       justify-content: center;
     }
     .box {
-      width: 80px;
-      height: 80px;
+      /*width: 80px; 
+      height: 80px; */
+      width: 10vw; 
+      height: 10vw;  
       margin: 5px;
       display: flex;
       justify-content: center;
       align-items: center;
-      font-size: 24px;
+      font-size: 3.5vw;
       font-weight: bold;
       color: white;
       border-radius: 8px;
@@ -48,24 +51,30 @@
       border-radius: 8px;
     }
 
-    /* Responsive Design */
-    @media (max-width: 600px) {
-      .container {
-        flex-direction: column; /* Stack rows vertically */
-      }
-      .box {
-        width: 60px; /* Adjust box size for smaller screens */
-        height: 60px;
-        font-size: 18px; /* Smaller font size */
-      }
-      #scoreboard {
-        font-size: 16px; /* Adjust scoreboard font size */
-      }
-      #rules {
-        font-size: 14px; /* Adjust rules font size */
-        padding: 10px;
-      }
+    #rules h2 {
+        font-size: 4vw;
+        color: #333;
+        text-align: center;
+        margin-top: 10px;
+        margin-bottom: 10px;
     }
+
+    #rules p {
+        font-size: 2vw;
+        color: #272626;
+        line-height: 1.5;
+        margin: 5px 0;
+    }
+
+    #rules ul {
+        list-style-type: none; /* Remove the dot from the list */
+        padding: 0;
+    }
+
+    /* Responsive Design */
+    
+    
+      
   </style>
 </head>
 <body>
@@ -81,7 +90,7 @@
 
   <div id="rules">
     <h2>Game Rules</h2>
-    <p>The goal of the game is to reach the target score by using the operations provided. Each operation can only be used once. You must use each operation.</p>
+    <p>The goal of the game is to reach the target score by using the operations provided. Each operation can only be used once.</p>
     <ul>
       <li><strong>Addition (+):</strong> Adds the specified value to your score.</li>
       <li><strong>Subtraction (-):</strong> Subtracts the specified value from your score.</li>

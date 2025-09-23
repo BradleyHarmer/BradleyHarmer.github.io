@@ -192,8 +192,8 @@ footer { grid-area: footer;}
     align-items: center;
     font-size: 3.5vw;
     font-weight: bold;
-    color: black;
-    border:#333 solid 4px;
+    color: white;
+    border: none;
     border-radius: 8px;
     cursor: pointer; /* Change cursor to pointer when hovering */
 }

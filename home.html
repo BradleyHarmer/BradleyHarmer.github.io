@@ -16,7 +16,7 @@
     <nav class="page-details ">
         <ul class="menu-bar">
             <li ><a href="home.html">Home</a></li>
-            <li><a href="tennis.html">Iron, Pen, and Racket</a></li>
+            <li><a href="tennis.html">Iron, Pen, & Racket</a></li>
             <li><a href="#life">GOATs</a></li>
             <li><a href="#about">About</a></li>
         </ul>
@@ -25,7 +25,7 @@
         <p>Edition #1 : September 21 - September 28, 2025</p>
     </div>
     <main class= "page-details weekly-blog-grid">
-        <article class="the-weekly-post article-section">
+        <article class="the-weekly-post article-section deep-dive">
             <header>
                 <h2>The Long Game</h2>
             </header>
@@ -35,7 +35,7 @@
             </div>
         </article>
 
-        <article class="article-section">
+        <article class="article-section short-read">
             <header>
                 <h2>The Shallow End</h2>
             </header>
@@ -45,7 +45,7 @@
             </div>
         </article>
 
-        <article class="article-section">
+        <article class="article-section one-word">
             <header>
                 <h2>Word To Live By</h2>
             </header>
@@ -55,7 +55,7 @@
             </div>
         </article>
 
-        <article class="article-section">
+        <article class="article-section quote">
             <header>
                 <h2>Words To Live By</h2>
             </header>
@@ -65,19 +65,110 @@
             </div>
         </article>
 
-        <article class="article-section">
+        <article class="article-section pemdas">
             <header>
-                <h2>PEMDAS PYRAMID</h2>
+                <h2>PEMDAS PUZZLE</h2>
             </header>
-            <div class="weekly-content">
-                <p><a href="pemdas.html">Go to PEMDAS</a></p>
+            <div class="pemdas-content">
+                <!-- <div class="box row1-col1">-1</div>
+                <div class="box row1-col2">+2</div>
+                <div class="box row1-col3">x3</div>
+                <div class="box row2-col1">x2</div>
+                <div class="box row2-col2">x4</div>
+                <div class="box row2-col3">+2</div> -->
+
             </div>
+            <div class="pemdas-info">
+                <div class="current-score">
+                    Current Score: <span id="score">0</span></div>
+                <button class="pemdas-button" id="restart">Restart</button>
+                <div class="target-score">
+                    Target Score: <span id="target">21</span></div>
+            </div>
+            
+            <p><a href="pemdas.html">Go to PEMDAS</a></p>
+            <script>
+                // ✅ Easily changeable configuration
+                const config = {
+                    target: 21,
+                    rows: [
+                        [ {label: "-1", op: "subtract", val: 1, color: "red"} ],
+                        [ {label: "+1", op: "add", val: 1, color: "orange"},
+                          {label: "x3", op: "multiply", val: 3, color: "yellow"} ],
+                        [ {label: "x2", op: "multiply", val: 2, color: "green"},
+                          {label: "x4", op: "multiply", val: 4, color: "blue"},
+                          {label: "+2", op: "add", val: 2, color: "purple"} ]
+                    ]
+                };
+
+                let score = 0;
+                const scoreDisplay = document.getElementById("score");
+                const targetDisplay = document.getElementById("target");
+                targetDisplay.textContent = config.target;
+
+                const gameBoard = document.querySelector(".pemdas-content");
+
+                const resultIndicator = document.createElement("span");
+                resultIndicator.id = "resultIndicator";
+                resultIndicator.style.marginLeft = "10px";
+                resultIndicator.style.fontSize = "20px";
+                scoreDisplay.parentNode.appendChild(resultIndicator);
+
+                config.rows.forEach((rowData, rowIndex) => {
+                    rowData.forEach((boxData, colIndex) => {
+                        const box = document.createElement("div");
+                        box.classList.add("box", `row${rowIndex + 1}-col${colIndex + 1}`);
+                        box.textContent = boxData.label;
+                        box.style.background = boxData.color;
+                        box.dataset.op = boxData.op;
+                        box.dataset.val = boxData.val;
+
+                        box.addEventListener("click", () => {
+                            if (box.classList.contains("used")) return;
+
+                            const op = box.dataset.op;
+                            const val = parseInt(box.dataset.val);
+
+                            if (op === "add") score += val;
+                            else if (op === "subtract") score -= val;
+                            else if (op === "multiply") score *= val;
+
+                            scoreDisplay.textContent = score;
+                            box.classList.add("used");
+
+                            if (document.querySelectorAll(".box:not(.used)").length === 0) {
+                                if (score === config.target) {
+                                    resultIndicator.textContent = "✔";
+                                    resultIndicator.style.color = "green";
+                                } else {
+                                    resultIndicator.textContent = "✘";
+                                    resultIndicator.style.color = "red";
+                                }
+                            }
+                        });
+
+                        gameBoard.appendChild(box);
+                    });
+                });
+
+                function restartGame() {
+                    score = 0;
+                    scoreDisplay.textContent = score;
+                    resultIndicator.textContent = "";
+                    document.querySelectorAll(".box").forEach(box => {
+                        box.classList.remove("used");
+                    });
+                }
+
+                const restartButton = document.getElementById("restart");
+                restartButton.addEventListener("click", restartGame);
+            </script>
         </article>
 
 
     </main>
     <footer class="page-details">
-        <p>&copy; 2024 Bradley's Personal Website</p>
+        <p></p>
 
     </footer>
 

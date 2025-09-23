@@ -60,6 +60,9 @@ select {
 body {
   display: grid;
   place-content: center;
+  left: 0;
+  right: 0;
+  min-width: none;
   min-height: 100vh;
   text-align: center;
   grid-auto-columns: auto;
@@ -146,3 +149,73 @@ footer { grid-area: footer;}
 .one-word { grid-area: one-word;}
 .quote { grid-area: quote;}
 .pemdas { grid-area: pemdas;}
+
+@media (min-width: 40em) {
+  .weekly-blog-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+      "deep one-word"
+      "deep quote"
+      "short pemdas";
+  }
+}
+
+/* PEMDAS Section */
+.pemdas-content {
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto auto auto;
+    justify-items: center;
+    row-gap: 1rem;
+    column-gap: 0;
+    grid-template-areas: 
+      "r1c1 r1c2 r1c3"
+      "r2c1 r2c2 r2c3";
+}
+
+.row1-column1 { grid-area: r1c1; }
+.row1-column2 { grid-area: r1c2; }
+.row1-column3 { grid-area: r1c3; }
+.row2-column1 { grid-area: r2c1; }
+.row2-column2 { grid-area: r2c2; }
+.row2-column3 { grid-area: r2c3; }
+
+
+.box {
+    width: 10vw; 
+    height: 10vw;  
+    margin: 0;
+    padding: 0;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    font-size: 3.5vw;
+    font-weight: bold;
+    color: black;
+    border:#333 solid 4px;
+    border-radius: 8px;
+    cursor: pointer; /* Change cursor to pointer when hovering */
+}
+
+.box.used {
+    opacity: 0.6;
+    cursor: default; /* Disable pointer cursor after use */
+}
+
+.pemdas-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    row-gap: 0;
+    column-gap: 0.5rem;
+}
+
+.pemdas-button {
+    color:white;
+    background-color: #08073f; /* Blue */
+    cursor: pointer;
+    border-color: #333;
+    box-shadow: none;
+    border-width: 0.2rem;
+
+}

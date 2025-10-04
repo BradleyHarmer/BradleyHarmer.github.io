@@ -42,6 +42,16 @@ a:not([class]) {
   text-decoration-skip-ink: auto;
 }
 
+a:link {
+  color: #9ab0ff; /* Or any other color name or hex code */
+}
+a:visited {
+  color: #9ab0ff; /* Or any other color name or hex code */
+}
+a:hover {
+  color: #9ab0ff; /* Or any other color name or hex code */
+}
+
 /* Make images easier to work with */
 img,
 picture {
@@ -105,16 +115,21 @@ body {
   text-align: center;
 }
 .edition-banner {
-    background-color: rgb(201, 32, 32);
+    background-color: rgb(131, 23, 23);
     color: white;
     font-size: 0.9em;
 }
 .red-background {
-  background-color: rgb(201, 32, 32);
+  background-color: rgb(131, 23, 23);
 }
 
 .white-background {
   background-color: white;
+}
+
+.grey-background {
+  background-color: #444;
+  color: white;
 }
 
 .menu-bar { 
@@ -203,15 +218,15 @@ footer { grid-area: footer;}
 }
 
 .box.used {
-    opacity: 0.6;
+    opacity: 0.4;
     cursor: default; /* Disable pointer cursor after use */
 }
 
 .pemdas-info {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    row-gap: 0;
-    column-gap: 0.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  row-gap: 0;
+  column-gap: 0.5rem;
 }
 
 .pemdas-button {
@@ -222,4 +237,27 @@ footer { grid-area: footer;}
     box-shadow: none;
     border-width: 0.2rem;
 
+}
+
+.difficulty-controls {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.difficulty-button {
+  background: #333;
+  color: white;
+  border: 2px solid #222;
+  padding: 0.4rem 0.6rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.difficulty-button.active {
+  background: #f1c40f;
+  color: #111;
+  border-color: #e67e22;
+  font-weight: bold;
 }

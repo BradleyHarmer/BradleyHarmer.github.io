@@ -25,7 +25,7 @@
         <p>Edition #1 : September 21 - September 28, 2025</p>
     </div>
     <main class= "page-details weekly-blog-grid red-background">
-        <article class="the-weekly-post article-section deep-dive white-background">
+        <article class="the-weekly-post article-section deep-dive grey-background">
             <header>
                 <h2>The Long Game</h2>
             </header>
@@ -35,7 +35,7 @@
             </div>
         </article>
 
-        <article class="article-section short-read white-background">
+        <article class="article-section short-read grey-background">
             <header>
                 <h2>The Shallow End</h2>
             </header>
@@ -45,7 +45,7 @@
             </div>
         </article>
 
-        <article class="article-section one-word white-background">
+        <article class="article-section one-word grey-background">
             <header>
                 <h2>Word To Live By</h2>
             </header>
@@ -55,7 +55,7 @@
             </div>
         </article>
 
-        <article class="article-section quote white-background">
+        <article class="article-section quote grey-background">
             <header>
                 <h2>Words To Live By</h2>
             </header>
@@ -65,7 +65,7 @@
             </div>
         </article>
 
-        <article class="article-section pemdas white-background">
+        <article class="article-section pemdas grey-background">
             <header>
                 <h2>PEMDAS PUZZLE</h2>
             </header>
@@ -79,6 +79,11 @@
 
             </div>
             <div class="pemdas-info">
+                <div class="difficulty-controls">
+                    <button class="difficulty-button" data-difficulty="easy">Easy</button>
+                    <button class="difficulty-button" data-difficulty="medium">Medium</button>
+                    <button class="difficulty-button" data-difficulty="hard">Hard</button>
+                </div>
                 <div class="current-score">
                     Current Score: <span id="score">0</span></div>
                 <button class="pemdas-button" id="restart">Restart</button>
@@ -88,80 +93,117 @@
             
             <p><a href="pemdas.html">Go to PEMDAS</a></p>
             <script>
-                // ✅ Easily changeable configuration
-                const config = {
-                    target: 21,
-                    rows: [
-                        [ {label: "-1", op: "subtract", val: 1, color: "red"} ],
-                        [ {label: "+1", op: "add", val: 1, color: "orange"},
-                          {label: "x3", op: "multiply", val: 3, color: "gold"} ],
-                        [ {label: "x2", op: "multiply", val: 2, color: "green"},
-                          {label: "x4", op: "multiply", val: 4, color: "blue"},
-                          {label: "+2", op: "add", val: 2, color: "purple"} ]
-                    ]
+                // Three difficulty configurations
+                const DIFFICULTIES = {
+                    easy: {
+                        target: 2,
+                        rows: [
+                            [ {label: "-1", op: "subtract", val: 1, color: "#c0392b"} ],
+                            [ {label: "+1", op: "add", val: 1, color: "#e67e22"}, {label: "x2", op: "multiply", val: 2, color: "#f39c12"} ],
+                            [ {label: "x2", op: "multiply", val: 2, color: "#2ecc71"}, {label: "+2", op: "add", val: 2, color: "#2980b9"}, {label: "-1", op: "subtract", val: 1, color: "#8e44ad"} ]
+                        ]
+                    },
+                    medium: {
+                        target: 6,
+                        rows: [
+                            [ {label: "-1", op: "subtract", val: 1, color: "#c0392b"} ],
+                            [ {label: "+1", op: "add", val: 1, color: "#e67e22"}, {label: "x2", op: "multiply", val: 2, color: "#f39c12"} ],
+                            [ {label: "x2", op: "multiply", val: 2, color: "#2ecc71"}, {label: "+2", op: "add", val: 2, color: "#2980b9"}, {label: "-1", op: "subtract", val: 1, color: "#8e44ad"} ]
+                        ]
+                    },
+                    hard: {
+                        target: 8,
+                        rows: [
+                            [ {label: "-1", op: "subtract", val: 1, color: "#c0392b"} ],
+                            [ {label: "+1", op: "add", val: 1, color: "#e67e22"}, {label: "x2", op: "multiply", val: 2, color: "#f39c12"} ],
+                            [ {label: "x2", op: "multiply", val: 2, color: "#2ecc71"}, {label: "+2", op: "add", val: 2, color: "#2980b9"}, {label: "-1", op: "subtract", val: 1, color: "#8e44ad"} ]
+                        ]
+                    }
                 };
 
+                let currentDifficulty = 'medium';
                 let score = 0;
+
                 const scoreDisplay = document.getElementById("score");
                 const targetDisplay = document.getElementById("target");
-                targetDisplay.textContent = config.target;
-
                 const gameBoard = document.querySelector(".pemdas-content");
-
                 const resultIndicator = document.createElement("span");
                 resultIndicator.id = "resultIndicator";
                 resultIndicator.style.marginLeft = "10px";
                 resultIndicator.style.fontSize = "20px";
                 scoreDisplay.parentNode.appendChild(resultIndicator);
 
-                config.rows.forEach((rowData, rowIndex) => {
-                    rowData.forEach((boxData, colIndex) => {
-                        const box = document.createElement("div");
-                        box.classList.add("box", `row${rowIndex + 1}-col${colIndex + 1}`);
-                        box.textContent = boxData.label;
-                        box.style.background = boxData.color;
-                        box.dataset.op = boxData.op;
-                        box.dataset.val = boxData.val;
-
-                        box.addEventListener("click", () => {
-                            if (box.classList.contains("used")) return;
-
-                            const op = box.dataset.op;
-                            const val = parseInt(box.dataset.val);
-
-                            if (op === "add") score += val;
-                            else if (op === "subtract") score -= val;
-                            else if (op === "multiply") score *= val;
-
-                            scoreDisplay.textContent = score;
-                            box.classList.add("used");
-
-                            if (document.querySelectorAll(".box:not(.used)").length === 0) {
-                                if (score === config.target) {
-                                    resultIndicator.textContent = "✔";
-                                    resultIndicator.style.color = "green";
-                                } else {
-                                    resultIndicator.textContent = "✘";
-                                    resultIndicator.style.color = "red";
-                                }
-                            }
-                        });
-
-                        gameBoard.appendChild(box);
-                    });
-                });
-
-                function restartGame() {
+                function renderBoard(difficultyKey) {
+                    const cfg = DIFFICULTIES[difficultyKey];
+                    currentDifficulty = difficultyKey;
+                    // clear board
+                    gameBoard.innerHTML = '';
                     score = 0;
                     scoreDisplay.textContent = score;
-                    resultIndicator.textContent = "";
-                    document.querySelectorAll(".box").forEach(box => {
-                        box.classList.remove("used");
+                    targetDisplay.textContent = cfg.target;
+                    resultIndicator.textContent = '';
+
+                    cfg.rows.forEach((rowData, rowIndex) => {
+                        rowData.forEach((boxData, colIndex) => {
+                            const box = document.createElement("div");
+                            box.classList.add("box", `row${rowIndex + 1}-col${colIndex + 1}`);
+                            box.textContent = boxData.label;
+                            box.style.background = boxData.color;
+                            box.dataset.op = boxData.op;
+                            box.dataset.val = boxData.val;
+
+                            box.addEventListener("click", () => {
+                                if (box.classList.contains("used")) return;
+
+                                const op = box.dataset.op;
+                                const val = parseInt(box.dataset.val);
+
+                                if (op === "add") score += val;
+                                else if (op === "subtract") score -= val;
+                                else if (op === "multiply") score *= val;
+
+                                scoreDisplay.textContent = score;
+                                box.classList.add("used");
+
+                                if (document.querySelectorAll(".pemdas-content .box:not(.used)").length === 0) {
+                                    if (score === cfg.target) {
+                                        resultIndicator.textContent = "✔";
+                                        resultIndicator.style.color = "green";
+                                    } else {
+                                        resultIndicator.textContent = "✘";
+                                        resultIndicator.style.color = "red";
+                                    }
+                                }
+                            });
+
+                            gameBoard.appendChild(box);
+                        });
                     });
                 }
 
+                function restartGame() {
+                    renderBoard(currentDifficulty);
+                }
+
+                // Difficulty buttons
+                document.querySelectorAll('.difficulty-button').forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        const diff = btn.dataset.difficulty;
+                        // mark active
+                        document.querySelectorAll('.difficulty-button').forEach(b => b.classList.remove('active'));
+                        btn.classList.add('active');
+                        renderBoard(diff);
+                    });
+                });
+
+                // restart
                 const restartButton = document.getElementById("restart");
                 restartButton.addEventListener("click", restartGame);
+
+                // initialize default
+                const defaultBtn = document.querySelector('.difficulty-button[data-difficulty="' + currentDifficulty + '"]');
+                if (defaultBtn) defaultBtn.classList.add('active');
+                renderBoard(currentDifficulty);
             </script>
         </article>
 

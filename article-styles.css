@@ -1,0 +1,219 @@
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+a:link {
+  color: #9ab0ff; /* Or any other color name or hex code */
+}
+a:visited {
+  color: #9ab0ff; /* Or any other color name or hex code */
+}
+a:hover {
+  color: #9ab0ff; /* Or any other color name or hex code */
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+body {
+  display: grid;
+  place-content: center;
+  left: 0;
+  right: 0;
+  min-width: none;
+  min-height: 100vh;
+  min-width: 100vw;
+  text-align: center;
+  grid-auto-columns: 1fr;
+  grid-auto-rows: auto;
+  grid-template-areas: 
+    "header"
+    "nav"
+    "section-banner"
+    "main"
+    "footer";
+}
+
+
+header { grid-area: header;}
+div.section-banner { grid-area: section-banner;}
+nav { grid-area: nav;}
+main { grid-area: main;}
+footer { grid-area: footer;}
+
+
+
+.intro {
+  background-color: #333;
+  color: white;
+  padding: 1rem 0;
+  text-align: center;
+}
+
+.menu-bar { 
+    display: grid;
+    list-style-type: none;
+    grid-template-columns: 1fr 1fr 1fr;
+    background-color: #444;
+    color: white;
+    align-items: center;
+    padding-inline-start: 0;
+    margin: 0;
+}
+.menu-bar li {
+    color: white;
+}
+.menu-bar li:hover {
+    background-color: #666;
+    cursor: pointer;
+}
+.menu-bar a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 0.5em;
+}
+
+.section-banner {
+    background-color: rgb(131, 23, 23);
+    color: white;
+    font-size: 0.9em;
+}
+
+.edition-banner p {
+    margin: 0;
+    padding: 0;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.solo-article {
+  display: grid;
+  place-content: center;
+  left: 0;
+  right: 0;
+  min-width: 100vw;
+  min-height: 100vh;
+  text-align: center;
+  grid-auto-columns: 1fr;
+  grid-auto-rows: auto;
+  grid-template-areas: 
+    "title"
+    "subsection"
+    "details"
+    "inspiration"
+    "content"
+  ;
+}
+.solo-article {
+  min-height: auto;
+}
+
+.title { grid-area: title;}
+.subsection { grid-area: subsection;}
+.details { grid-area: details;}
+.inspiration { grid-area: inspiration;}
+.content { grid-area: content;}
+
+.title {
+  font-size: xx-large;
+  font-weight: bold;
+  margin: 0.5em 0 0 0;
+}
+.subsection {
+  font-size: large;
+  font-style: italic;
+  color:rgb(184, 32, 32);
+ 
+}
+.details {
+  font-size: small;
+  margin: 0 0 0 0;
+}
+.inspiration {
+  max-width: 45ch; 
+  font-size: large;
+  margin: 0 auto;          /* centers it horizontally */
+
+  font-style: italic;
+  line-height: 1.6;
+  border-bottom: rgb(184, 32, 32) solid 2px;
+  border-top: rgb(184, 32, 32) solid 2px;
+  margin-bottom: 1%;
+}
+
+.content {
+  max-width: 60ch;         /* limit line length (≈ 60 characters per line is ideal) */
+  margin: 0 auto;          /* centers it horizontally */
+  text-align: left;        /* keeps text aligned left inside centered container */
+  line-height: 1.6;
+  font-size: x-large;
+}
+
+
+
+.red-background {
+  background-color: rgb(131, 23, 23);
+}
+
+.white-background {
+  background-color: white;
+}
+
+.grey-background {
+  background-color: #444;
+  color: white;
+}

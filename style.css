@@ -19,6 +19,19 @@ dd {
   margin: 0;
 }
 
+h2 {
+    font-size: 1.8rem;
+    font-family: 'Georgia', serif;
+    font-weight: bold;
+    margin-bottom: 0.25rem;
+}
+p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin: 0 auto;
+    max-width: 60ch;
+}
+
 /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
 ul[role="list"],
 ol[role="list"] {
@@ -75,8 +88,8 @@ body {
   min-width: none;
   min-height: 100vh;
   text-align: center;
-  grid-auto-columns: auto;
-    grid-auto-rows: auto;
+  grid-auto-columns: 1fr;
+  grid-auto-rows: auto;
   grid-template-areas: 
     "header"
     "nav"
@@ -104,8 +117,8 @@ body {
 */
 
 .article-section {
-    border: 4px solid #333;
-    border-radius: 0;
+    border: none;
+    border-radius: 8px;
 }
 
 .intro {
@@ -117,7 +130,9 @@ body {
 .edition-banner {
     background-color: rgb(131, 23, 23);
     color: white;
-    font-size: 0.9em;
+    font-size: 1em;
+    font-weight: bold;
+
 }
 .red-background {
   background-color: rgb(131, 23, 23);
@@ -132,10 +147,26 @@ body {
   color: white;
 }
 
+.article-header {
+  position: relative
+}
+
+.see-full-page {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
 .menu-bar { 
     display: grid;
     list-style-type: none;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     background-color: #444;
     color: white;
     align-items: center;
@@ -156,8 +187,46 @@ body {
     padding: 0.5em;
 }
 
-header { grid-area: header;}
+.edition-banner p {
+    margin: 0;
+    padding: 0;
+    font-size: 1rem;
+    font-weight: bold;
+}
 
+.short-read h2 {
+    font-size: 1.8rem;
+    font-family: 'Georgia', serif;
+    font-weight: bold;
+    margin-bottom: 0.25rem;
+}
+.short-read h3 {
+    font-size: 1.5rem;
+    color: rgb(230, 96, 96);
+    font-weight: bold;
+    margin-bottom: 0;
+}
+.short-read h4 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color:rgb(184, 32, 32);
+}
+
+.deep-dive h2 {
+    font-size: 1.8rem;
+    font-family: 'Georgia', serif;
+    font-weight: bold;
+    margin-bottom: 0.25rem;
+}
+.deep-dive h3 {
+    font-size: 1.5rem;
+    color: rgb(230, 96, 96);
+    font-weight: bold;
+    margin-bottom: 0;
+}
+
+
+header { grid-area: header;}
 div.edition-banner { grid-area: edition-banner;}
 nav { grid-area: nav;}
 main { grid-area: main;}
@@ -231,14 +300,18 @@ footer { grid-area: footer;}
 
 .pemdas-button {
     color:white;
-    background-color: #08073f; /* Blue */
+    background-color: #333; /* Blue */
     cursor: pointer;
-    border-color: #333;
+    border-color: #222;
+    border: none;
     box-shadow: none;
-    border-width: 0.2rem;
+    border-radius: 6px;
+
 
 }
-
+.pemdas-button:hover {
+    background-color: #555; /* Darker blue on hover */
+}
 .difficulty-controls {
   display: flex;
   gap: 0.5rem;
@@ -260,4 +333,33 @@ footer { grid-area: footer;}
   color: #111;
   border-color: #e67e22;
   font-weight: bold;
+}
+
+/* BEGIN solo article section */
+
+.solo-article {
+    display: grid;
+  place-content: center;
+  left: 0;
+  right: 0;
+  min-width: none;
+  min-height: 100vh;
+  text-align: center;
+  grid-auto-columns: 1fr;
+  grid-auto-rows: auto;
+    grid-template-areas: 
+    "title"
+    "section"
+    "details"
+    "body";
+}
+.solo-article-title { grid-area: title; }
+.solo-article-section { grid-area: section; }
+.solo-article-details { grid-area: details; }
+.solo-article-body { grid-area: body; }
+
+.solo-article-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
 }

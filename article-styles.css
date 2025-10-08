@@ -174,13 +174,13 @@ footer { grid-area: footer;}
   margin: 0.5em 0 0 0;
 }
 .subsection {
-  font-size: large;
+  font-size: x-large;
   font-style: italic;
   color:rgb(184, 32, 32);
  
 }
 .details {
-  font-size: small;
+  font-size: medium;
   margin: 0 0 0 0;
 }
 .inspiration {

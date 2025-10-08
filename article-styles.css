@@ -217,3 +217,9 @@ footer { grid-area: footer;}
   background-color: #444;
   color: white;
 }
+
+@media (max-width: 40em) {
+  .solo-article{
+    padding: 1rem 1rem;
+  }
+}

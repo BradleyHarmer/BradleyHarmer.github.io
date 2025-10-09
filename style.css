@@ -271,14 +271,14 @@ footer { grid-area: footer;}
 
 
 .box {
-    width: 10vw; 
-    height: 10vw;  
+    width: 8vw; 
+    height: 8vw;  
     margin: 0;
     padding: 0;
     display: grid;
     justify-content: center;
     align-items: center;
-    font-size: 3.5vw;
+    font-size: 3vw;
     font-weight: bold;
     color: white;
     border: none;
@@ -286,6 +286,22 @@ footer { grid-area: footer;}
     cursor: pointer; /* Change cursor to pointer when hovering */
 }
 
+@media screen and (max-width: 40em) {
+    .box {
+        width: 20vw; 
+        height: 20vw;  
+        font-size: 8vw;
+    }
+    .difficulty-button {
+        padding: 0.3rem 0.4rem;
+        font-size: 0.9rem;
+    }
+    .pemdas-button {
+        padding: 0.3rem 0.4rem;
+        font-size: 0.9rem;
+    }
+  
+}
 .box.used {
     opacity: 0.4;
     cursor: default; /* Disable pointer cursor after use */

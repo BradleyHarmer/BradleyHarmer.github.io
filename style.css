@@ -27,9 +27,13 @@ h2 {
 }
 p {
     font-size: 1.1rem;
+    font-family: 'proxima-nova', 'Arial', sans-serif;
     line-height: 1.6;
     margin: 0 auto;
     max-width: 60ch;
+}
+ul {
+    font-family: 'proxima-nova', 'Arial', sans-serif;
 }
 
 /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
@@ -145,6 +149,10 @@ body {
 .grey-background {
   background-color: #444;
   color: white;
+}
+
+.light-red-color {
+  color: rgb(230, 96, 96);
 }
 
 .article-header {
@@ -322,6 +330,10 @@ footer { grid-area: footer;}
     border: none;
     box-shadow: none;
     border-radius: 6px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 10vw;
+    height: 2vw
 
 
 }
@@ -379,3 +391,38 @@ footer { grid-area: footer;}
     font-weight: bold;
     margin-bottom: 0.5rem;
 }
+
+/* END solo article section */
+
+/* BEGIN archive section */
+
+.archive-list {
+  list-style-type: none;
+  text-align: left;
+}
+
+/* END archive section */
+/* BEGIN about section */
+
+.about-page p{
+    max-width: 70ch;
+    margin: 0 auto;
+    padding: 0 1rem;
+    font-size: large;
+    text-align: left;
+    line-height: 1.6;
+    justify-content: center;
+    margin-bottom: auto;
+
+}
+.about-page ul {
+    list-style-type: disc;
+    text-align: left;
+    max-width: 70ch;
+    margin: 0 auto;
+    padding: 0 1rem;
+    font-size: large;
+    line-height: 1.6;
+    justify-content: center;
+}
+

@@ -20,6 +20,16 @@ dd {
   margin: 0;
 }
 
+p {
+    font-size: 1.1rem;
+    font-family: 'proxima-nova', 'Arial', sans-serif;
+    line-height: 1.6;
+    margin: 0 auto;
+    max-width: 60ch;
+}
+ul {
+    font-family: 'proxima-nova', 'Arial', sans-serif;
+}
 /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
 ul[role="list"],
 ol[role="list"] {

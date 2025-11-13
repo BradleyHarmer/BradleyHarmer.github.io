@@ -48,6 +48,15 @@ body {
   line-height: 1.5;
 }
 
+blockquote {
+  border-left: 4px solid rgb(131, 23, 23);
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 1em;
+  background-color: #464040;
+  color: white;
+  font-style: italic;
+}
 /* A elements that don't have a class get default styles */
 a:not([class]) {
   text-decoration-skip-ink: auto;

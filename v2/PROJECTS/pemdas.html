@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PEMDAS Puzzle — Intracoastal Dispatch</title>
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --black: #111111;
+      --dark-grey: #333333;
+      --mid-grey: #666666;
+      --light-grey: #aaaaaa;
+      --rule: #cccccc;
+      --bg: #ffffff;
+    }
+
+    body {
+      font-family: Georgia, 'Times New Roman', serif;
+      background: var(--bg);
+      color: var(--dark-grey);
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    /* ── Header ── */
+    header {
+      border-bottom: 3px double var(--black);
+      padding: 24px 48px 0;
+    }
+
+    .masthead {
+      text-align: center;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .masthead h1 {
+      font-size: 3rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--black);
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .masthead a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      padding: 12px 0;
+    }
+
+    nav a {
+      text-decoration: none;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--dark-grey);
+      transition: color 0.15s;
+    }
+
+    nav a:hover { color: var(--black); }
+
+    /* ── Page ── */
+    main {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 56px 24px 100px;
+    }
+
+    .page-label {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--mid-grey);
+      margin-bottom: 6px;
+    }
+
+    .page-heading {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--black);
+      border-bottom: 3px solid var(--black);
+      padding-bottom: 14px;
+      margin-bottom: 10px;
+    }
+
+    .page-desc {
+      font-size: 0.92rem;
+      color: var(--mid-grey);
+      font-style: italic;
+      margin-bottom: 48px;
+    }
+
+    /* ── Game Container ── */
+    .game {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 32px;
+    }
+
+    /* ── Target ── */
+    .target-display {
+      text-align: center;
+    }
+
+    .target-label {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--mid-grey);
+      margin-bottom: 4px;
+    }
+
+    .target-number {
+      font-size: 3.5rem;
+      font-weight: 700;
+      color: var(--black);
+      line-height: 1;
+      letter-spacing: -0.02em;
+    }
+
+    /* ── Score ── */
+    .score-display {
+      text-align: center;
+    }
+
+    .score-label {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--mid-grey);
+      margin-bottom: 4px;
+    }
+
+    .score-number {
+      font-size: 3.5rem;
+      font-weight: 700;
+      color: var(--mid-grey);
+      line-height: 1;
+      letter-spacing: -0.02em;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      transition: color 0.2s;
+    }
+
+    .score-number.win { color: #2d8a4e; }
+
+    /* ── Tile Row ── */
+    .tiles-row {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: nowrap;
+    }
+
+    .tile {
+      width: 110px;
+      height: 110px;
+      border-radius: 6px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      user-select: none;
+      transition: transform 0.1s, box-shadow 0.1s, opacity 0.15s, background 0.15s;
+    }
+
+    .tile:hover:not(.used) {
+      transform: scale(1.06);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.18);
+    }
+
+    .tile:active:not(.used) {
+      transform: scale(0.97);
+    }
+
+    .tile.used {
+      cursor: default;
+      opacity: 0.28;
+      filter: grayscale(0.5);
+    }
+
+    .tile-op {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: rgba(255,255,255,0.75);
+      line-height: 1;
+      margin-bottom: 2px;
+    }
+
+    .tile-digit {
+      font-size: 2.6rem;
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1;
+    }
+
+    /* ── Progress Bar ── */
+    .progress-row {
+      display: flex;
+      gap: 10px;
+    }
+
+    .progress-slot {
+      width: 110px;
+      height: 18px;
+      border-radius: 3px;
+      border: 2px solid var(--rule);
+      background: transparent;
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    .progress-slot.filled {
+      border-color: transparent;
+    }
+
+    /* ── Win / Status message ── */
+    .status-message {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #2d8a4e;
+      min-height: 1.2em;
+      text-align: center;
+    }
+
+    /* ── Controls ── */
+    .controls {
+      display: flex;
+      gap: 12px;
+    }
+
+    .btn {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border: 2px solid var(--rule);
+      background: transparent;
+      color: var(--mid-grey);
+      padding: 10px 24px;
+      cursor: pointer;
+      transition: background 0.12s, color 0.12s, border-color 0.12s;
+    }
+
+    .btn:hover {
+      border-color: var(--dark-grey);
+      background: var(--dark-grey);
+      color: var(--bg);
+    }
+
+    /* ── Footer ── */
+    footer {
+      border-top: 1px solid var(--rule);
+      margin-top: 60px;
+      padding: 20px 24px;
+      text-align: center;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.75rem;
+      color: var(--light-grey);
+      letter-spacing: 0.05em;
+    }
+
+    @media (max-width: 640px) {
+      header { padding: 20px 20px 0; }
+      .masthead h1 { font-size: 2rem; }
+      .tile { width: 84px; height: 84px; }
+      .tile-digit { font-size: 2rem; }
+      .tile-op { font-size: 1.1rem; }
+      .tiles-row, .progress-row { gap: 6px; }
+      .progress-slot { width: 84px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="masthead">
+      <a href="../home_template.html"><h1>Intracoastal Dispatch</h1></a>
+    </div>
+    <nav>
+      <a href="../home_template.html">Home</a>
+      <a href="#">Archive</a>
+      <a href="#">About</a>
+    </nav>
+  </header>
+
+  <main>
+    <p class="page-label">Projects</p>
+    <h2 class="page-heading">PEMDAS Puzzle</h2>
+    <p class="page-desc">Click the tiles one at a time. Each operation is applied to your running score in the order you choose. Get to the target after all six tiles are used.</p>
+
+    <div class="game">
+
+      <div class="target-display">
+        <div class="target-label">Target</div>
+        <div class="target-number" id="target-number">—</div>
+      </div>
+
+      <div class="tiles-row" id="tiles-row"></div>
+
+      <div class="progress-row" id="progress-row"></div>
+
+      <div class="score-display">
+        <div class="score-label">Score</div>
+        <div class="score-number" id="score-number">0</div>
+      </div>
+
+      <div class="status-message" id="status-message"></div>
+
+      <div class="controls">
+        <button class="btn" id="btn-reset">Reset</button>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2026 Intracoastal Dispatch
+  </footer>
+
+  <script>
+    // ╔══════════════════════════════════════════════════════════════╗
+    // ║  PUZZLE CONFIGURATION — edit these values to set the puzzle  ║
+    // ╠══════════════════════════════════════════════════════════════╣
+    // ║  Each tile needs an op ('+' '-' 'x' '/') and a digit (0–9). ║
+    // ║  target: the number the player must reach.                   ║
+    // ╚══════════════════════════════════════════════════════════════╝
+
+    const PUZZLE = {
+      target: 8,
+      tiles: [
+        { op: '×', digit: 3 },   // tile 0 — red
+        { op: '−', digit: 2 },   // tile 1 — orange
+        { op: '×', digit: 2 },   // tile 2 — yellow
+        { op: '+', digit: 1 },   // tile 3 — green
+        { op: '+', digit: 2 },   // tile 4 — blue
+        { op: '-', digit: 3 },   // tile 5 — violet
+      ],
+    };
+
+    // ── Constants ────────────────────────────────────────────────
+    const COLORS = ['#e63946', '#f4722b', '#f9c74f', '#43aa8b', '#4361ee', '#9b5de5'];
+    const OP_DISPLAY = { '+':'+', '-':'−', '−':'−', 'x':'×', '*':'×', '×':'×', '/':'÷', '÷':'÷' };
+
+    // ── State ────────────────────────────────────────────────────
+    let tileData = [];   // [{id, op, digit, color}]
+    let score = 0;
+    let usedIds = [];    // tile ids clicked so far, in order
+    let gameOver = false;
+
+    // ── Helpers ──────────────────────────────────────────────────
+    function apply(value, op, digit) {
+      switch (op) {
+        case '+':                      return value + digit;
+        case '-': case '−':            return value - digit;
+        case 'x': case '*': case '×':  return value * digit;
+        case '/': case '÷':            return digit !== 0 ? value / digit : value;
+        default: return value;
+      }
+    }
+
+    function fmt(n) {
+      return parseFloat(n.toFixed(2)).toString();
+    }
+
+    function closeEnough(a, b) {
+      return Math.abs(a - b) < 0.001;
+    }
+
+    // ── Init ─────────────────────────────────────────────────────
+    function init() {
+      tileData = PUZZLE.tiles.map((t, i) => ({
+        id: i,
+        op: t.op,
+        digit: t.digit,
+        color: COLORS[i],
+      }));
+
+      score    = 0;
+      usedIds  = [];
+      gameOver = false;
+
+      document.getElementById('target-number').textContent = fmt(PUZZLE.target);
+      document.getElementById('score-number').textContent  = '0';
+      document.getElementById('score-number').className    = 'score-number';
+      document.getElementById('status-message').textContent = '';
+
+      renderTiles();
+      renderProgress();
+    }
+
+    // ── Render tiles ─────────────────────────────────────────────
+    function renderTiles() {
+      const row = document.getElementById('tiles-row');
+      row.innerHTML = '';
+
+      tileData.forEach(tile => {
+        const el = document.createElement('div');
+        el.className = 'tile' + (usedIds.includes(tile.id) ? ' used' : '');
+        el.style.background = tile.color;
+        el.dataset.id = tile.id;
+
+        el.innerHTML = `
+          <span class="tile-op">${OP_DISPLAY[tile.op] ?? tile.op}</span>
+          <span class="tile-digit">${tile.digit}</span>
+        `;
+
+        el.addEventListener('click', () => onTileClick(tile.id));
+        row.appendChild(el);
+      });
+    }
+
+    // ── Render progress bar ───────────────────────────────────────
+    function renderProgress() {
+      const row = document.getElementById('progress-row');
+      row.innerHTML = '';
+
+      for (let i = 0; i < tileData.length; i++) {
+        const slot = document.createElement('div');
+        slot.className = 'progress-slot';
+
+        if (i < usedIds.length) {
+          const tile = tileData[usedIds[i]];
+          slot.style.background   = tile.color;
+          slot.classList.add('filled');
+        }
+
+        row.appendChild(slot);
+      }
+    }
+
+    // ── Click handler ─────────────────────────────────────────────
+    function onTileClick(id) {
+      if (gameOver || usedIds.includes(id)) return;
+
+      const tile = tileData[id];
+      score = apply(score, tile.op, tile.digit);
+      usedIds.push(id);
+
+      document.getElementById('score-number').textContent = fmt(score);
+
+      renderTiles();
+      renderProgress();
+
+      // Check end condition after all tiles used
+      if (usedIds.length === tileData.length) {
+        gameOver = true;
+        const won = closeEnough(score, PUZZLE.target);
+        document.getElementById('score-number').className = 'score-number' + (won ? ' win' : '');
+        document.getElementById('status-message').textContent = won ? '✓ Puzzle solved!' : 'Not quite — try resetting.';
+      }
+    }
+
+    document.getElementById('btn-reset').addEventListener('click', init);
+
+    init();
+  </script>
+
+</body>
+</html>

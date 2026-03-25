@@ -244,28 +244,29 @@ footer { grid-area: footer;}
 .short-read { grid-area: short;}
 .one-word { grid-area: one-word;}
 .quote { grid-area: quote;}
-.pemdas { grid-area: pemdas;}
+.pemdas { grid-area: pemdas; position: relative; }
 
 @media (min-width: 40em) {
   .weekly-blog-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     grid-template-areas: 
-      "deep one-word"
-      "deep quote"
-      "short pemdas";
+      "deep  deep one-word"
+      "deep  deep quote"
+      "short pemdas pemdas";
   }
 }
 
 /* PEMDAS Section */
 .pemdas-content {
     display:grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: auto auto auto;
     grid-template-rows: auto auto auto;
     justify-items: center;
-    row-gap: 1rem;
-    column-gap: 0;
-    grid-template-areas: 
+    justify-content: center;
+    row-gap: 0.25rem;
+    column-gap: 0.25rem;
+    grid-template-areas:
       "r1c1 r1c2 r1c3"
       "r2c1 r2c2 r2c3";
 }
@@ -279,14 +280,14 @@ footer { grid-area: footer;}
 
 
 .box {
-    width: 8vw; 
-    height: 8vw;  
+    width: 5vw;
+    height: 5vw;
     margin: 0;
     padding: 0;
     display: grid;
     justify-content: center;
     align-items: center;
-    font-size: 3vw;
+    font-size: 1.8vw;
     font-weight: bold;
     color: white;
     border: none;
@@ -296,9 +297,9 @@ footer { grid-area: footer;}
 
 @media screen and (max-width: 40em) {
     .box {
-        width: 20vw; 
-        height: 20vw;  
-        font-size: 8vw;
+        width: 13vw;
+        height: 13vw;
+        font-size: 5vw;
     }
     .difficulty-button {
         padding: 0.3rem 0.4rem;
@@ -316,26 +317,43 @@ footer { grid-area: footer;}
 }
 
 .pemdas-info {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  row-gap: 0;
-  column-gap: 0.5rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.score-check {
+  display: flex;
+  flex-direction: row;
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.progress-bar {
+  display: flex;
+  flex-direction: row;
+  gap: 0.2rem;
+}
+
+.progress-box {
+  width: 2.5vw;
+  height: 2.5vw;
+  background-color: #666;
+  border-radius: 3px;
 }
 
 .pemdas-button {
-    color:white;
-    background-color: #333; /* Blue */
+    color: white;
+    background-color: #333;
     cursor: pointer;
-    border-color: #222;
-    border: none;
+    border: 2px solid #222;
     box-shadow: none;
     border-radius: 6px;
-    margin-left: auto;
-    margin-right: auto;
-    width: 10vw;
-    height: 2vw
-
-
+    padding: 0.4rem 0.6rem;
 }
 .pemdas-button:hover {
     background-color: #555; /* Darker blue on hover */

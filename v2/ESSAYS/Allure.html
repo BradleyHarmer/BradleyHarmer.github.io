@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Article Title — Intracoastal Dispatch</title>
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --black: #111111;
+      --dark-grey: #333333;
+      --mid-grey: #666666;
+      --light-grey: #aaaaaa;
+      --rule: #cccccc;
+      --bg: #ffffff;
+    }
+
+    body {
+      font-family: Georgia, 'Times New Roman', serif;
+      background: var(--bg);
+      color: var(--dark-grey);
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    /* ── Header ── */
+    header {
+      border-bottom: 3px double var(--black);
+      padding: 24px 48px 0;
+    }
+
+    .masthead {
+      text-align: center;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .masthead h1 {
+      font-size: 3rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--black);
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .masthead a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      padding: 12px 0;
+    }
+
+    nav a {
+      text-decoration: none;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--dark-grey);
+      transition: color 0.15s;
+    }
+
+    nav a:hover {
+      color: var(--black);
+    }
+
+    /* ── Article Layout ── */
+    main {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 56px 24px 100px;
+    }
+
+    /* ── Article Header ── */
+    .article-header {
+      margin-bottom: 40px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .article-section {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--mid-grey);
+      margin-bottom: 14px;
+    }
+
+    .article-title {
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: var(--black);
+      line-height: 1.15;
+      letter-spacing: 0.01em;
+      margin-bottom: 14px;
+    }
+
+    .article-subtitle {
+      font-size: 1.15rem;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--mid-grey);
+      line-height: 1.45;
+      margin-bottom: 20px;
+    }
+
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.75rem;
+      color: var(--light-grey);
+      letter-spacing: 0.04em;
+    }
+
+    .article-meta .sep {
+      color: var(--rule);
+    }
+
+    /* ── Body Copy ── */
+    .article-body p {
+      margin-bottom: 1.5em;
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: var(--dark-grey);
+    }
+
+    .article-body p:first-child::first-letter {
+      font-size: 3.4em;
+      font-weight: 700;
+      color: var(--black);
+      float: left;
+      line-height: 0.8;
+      margin: 0.08em 0.08em 0 0;
+    }
+
+    .article-body h2 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--black);
+      margin: 2.4em 0 0.6em;
+      letter-spacing: 0.01em;
+    }
+
+    .article-body h3 {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--mid-grey);
+      margin: 2em 0 0.5em;
+    }
+
+    .article-body blockquote {
+      border-left: 3px solid var(--black);
+      margin: 2em 0;
+      padding: 4px 0 4px 24px;
+      font-style: italic;
+      color: var(--mid-grey);
+      font-size: 1.05rem;
+      line-height: 1.65;
+    }
+
+    .article-body hr {
+      border: none;
+      border-top: 1px solid var(--rule);
+      margin: 2.5em 0;
+    }
+
+    .article-body img {
+      max-width: 100%;
+      height: auto;
+      margin: 1.5em 0;
+    }
+
+    /* ── Footer ── */
+    footer {
+      border-top: 1px solid var(--rule);
+      margin-top: 60px;
+      padding: 20px 24px;
+      text-align: center;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.75rem;
+      color: var(--light-grey);
+      letter-spacing: 0.05em;
+    }
+
+    @media (max-width: 600px) {
+      header { padding: 20px 20px 0; }
+      .masthead h1 { font-size: 2rem; }
+      .article-title { font-size: 1.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="masthead">
+      <a href="home_template.html"><h1>Intracoastal Dispatch</h1></a>
+    </div>
+    <nav>
+      <a href="home_template.html">Home</a>
+      <a href="#">Archive</a>
+      <a href="#">About</a>
+    </nav>
+  </header>
+
+  <main>
+    <article>
+
+      <header class="article-header">
+        <!-- Section label: Fiction / Essays / Projects -->
+        <p class="article-section">Observation</p>
+
+        <!-- Title -->
+        <h1 class="article-title">The Allure Of More Time To Waste</h1>
+
+        <!-- Subtitle — remove this element if not needed -->
+
+        <!-- Meta: date and word count -->
+        <div class="article-meta">
+          <span>December 12, 2025</span>
+          <span class="sep">&middot;</span>
+          <span>455 words</span>
+        </div>
+      </header>
+
+      <!-- ── Body ──────────────────────────────────────
+           Write article content here.
+
+           Available elements:
+             <p>          — body paragraph (first gets a drop cap)
+             <h2>         — section heading
+             <h3>         — small-caps subheading
+             <blockquote> — pull quote
+             <hr>         — section break
+      ─────────────────────────────────────────────── -->
+      <div class="article-body">
+
+<p><span style="font-weight: 400;">I get home when it&rsquo;s nearly dark these days. The best I can hope for in terms of parity or splendor is catching sight of a flock of ducks in flight &mdash; on their way home back to the preserve, silhouetted against a twilit sky. But after a moment, they&rsquo;re gone and I head inside, not to come out again for approximately another 14 hours. I will spend these hours mostly looking at screens of various sizes, in various rooms, and sleeping. It is a paralyzing Time Machine.</span></p>
+<p><span style="font-weight: 400;">The most obvious thing in the world is that it doesn&rsquo;t have to be this way. But maybe I let myself succumb to malaise, engrossed in a scrolling tapestry of cultivated stories because I like it &mdash; because it&rsquo;s comforting.I&rsquo;ve dug my heels in consumption&rsquo;s quicksand because maybe I know it will never be deep enough to drown me. My head will remain above the surface so my eyes can be trained on more creation than can be devoured. And what a shameful waste it is to scorn what&rsquo;s made for you, so an hour spent looking at a tree is heresy and must not be mentioned. The trees have been there before our tastes could be developed and they are only interesting when they are pointed out by an expert of such taste. The trees have all been mapped and named.</span></p>
+<p><span style="font-weight: 400;">My mortal anxiety is founded not in what I&rsquo;ll miss out on doing, but instead on what I&rsquo;ll miss out on seeing. My heaven is as a wanderlust phantom treating the revolving globe as eternal cable tv. To see where we go is the goal &mdash; putting in any effort towards advancement myself is simply wasteful arrogance.&nbsp;</span></p>
+<p><span style="font-weight: 400;">But of course this is not what I tell myself. I tell myself I have great things to contribute. Oh, I have so many ideas when I let myself think them. I have beliefs that could have resonance if I simply collaborated. I simply need more time. If only I had more time to create, I would&hellip;what? Create? Create what? With what?&nbsp;</span></p>
+<p><span style="font-weight: 400;">The truth is, when I have that precious time I usually jump right back into the quicksand &mdash; not because I love it there, but because it&rsquo;s easier than getting up. But I've been trying more and more to get up. To see some trees, maybe. To see some things that aren&rsquo;t there for me, are there for themselves, are there by accident. There has never been enough time. There will always be things to miss. So maybe it&rsquo;s better to look at a tree that's been seen before, but not by you. The time will have passed all the same, but at least you&rsquo;ll have made a choice. </span></p>
+<p><span style="font-weight: 400;"><img src="../IMAGES/trees.JPG" alt="Trees alive and dead against a void of blue." /></span></p>
+
+      </div>
+
+    </article>
+  </main>
+
+  <footer>
+    &copy; 2026 Intracoastal Dispatch
+  </footer>
+
+</body>
+</html>

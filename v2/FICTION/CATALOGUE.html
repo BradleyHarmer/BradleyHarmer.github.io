@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fiction — Intracoastal Dispatch</title>
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --black: #111111;
+      --dark-grey: #333333;
+      --mid-grey: #666666;
+      --light-grey: #aaaaaa;
+      --rule: #cccccc;
+      --bg: #ffffff;
+    }
+
+    body {
+      font-family: Georgia, 'Times New Roman', serif;
+      background: var(--bg);
+      color: var(--dark-grey);
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    /* ── Header ── */
+    header {
+      border-bottom: 3px double var(--black);
+      padding: 24px 48px 0;
+    }
+
+    .masthead {
+      text-align: center;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .masthead h1 {
+      font-size: 3rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--black);
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .masthead a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      padding: 12px 0;
+    }
+
+    nav a {
+      text-decoration: none;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--dark-grey);
+      transition: color 0.15s;
+    }
+
+    nav a:hover {
+      color: var(--black);
+    }
+
+    /* ── Page Header ── */
+    main {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+
+    .page-title {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--mid-grey);
+      margin-bottom: 6px;
+    }
+
+    .page-heading {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--black);
+      letter-spacing: 0.02em;
+      border-bottom: 3px solid var(--black);
+      padding-bottom: 16px;
+      margin-bottom: 56px;
+    }
+
+    /* ── Category ──
+     *
+     * TO ADD A CATEGORY:
+     *   Copy one <section class="category"> block and update
+     *   the <h2> label and <article> entries within it.
+     *
+     * TO ADD AN ARTICLE:
+     *   Copy one <article class="article"> block inside the
+     *   relevant category and fill in title, lede, and href.
+     */
+
+    .category {
+      margin-bottom: 56px;
+    }
+
+    .category-label {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--mid-grey);
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 8px;
+      margin-bottom: 0;
+    }
+
+    .article {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: baseline;
+      column-gap: 24px;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--rule);
+      text-decoration: none;
+      color: inherit;
+      transition: background 0.1s;
+    }
+
+    .article:hover .article-title {
+      color: var(--black);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .article-body {
+      min-width: 0;
+    }
+
+    .article-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--black);
+      line-height: 1.3;
+      margin-bottom: 4px;
+    }
+
+    .article-lede {
+      font-size: 0.85rem;
+      color: var(--mid-grey);
+      line-height: 1.5;
+    }
+
+    .article-meta {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.72rem;
+      color: var(--light-grey);
+      white-space: nowrap;
+      text-align: right;
+    }
+
+    /* ── Footer ── */
+    footer {
+      border-top: 1px solid var(--rule);
+      margin-top: 60px;
+      padding: 20px 24px;
+      text-align: center;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.75rem;
+      color: var(--light-grey);
+      letter-spacing: 0.05em;
+    }
+
+    @media (max-width: 600px) {
+      header { padding: 20px 20px 0; }
+      .masthead h1 { font-size: 2rem; }
+
+      .article {
+        grid-template-columns: 1fr;
+      }
+
+      .article-meta {
+        text-align: left;
+        margin-top: 4px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="masthead">
+      <a href="../home_template.html"><h1>Intracoastal Dispatch</h1></a>
+    </div>
+    <nav>
+      <a href="../home_template.html">Home</a>
+      <a href="#">Archive</a>
+      <a href="#">About</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <p class="page-title">Intracoastal Dispatch</p>
+    <h2 class="page-heading">Fiction</h2>
+
+
+    <section class="category">
+      <h3 class="category-label">Flash Fiction</h3>
+
+      <!-- To add an article, duplicate this <a> block. -->
+      <a href="#" class="article">
+        <div class="article-body">
+          <div class="article-title">Piece Title One</div>
+          <p class="article-lede">A brief excerpt</p>
+        </div>
+        <div class="article-meta">2026</div>
+      </a>
+
+    </section>
+
+    <section class="category">
+      <h3 class="category-label">Short Stories</h3>
+
+      <a href="#" class="article">
+        <div class="article-body">
+          <div class="article-title">Piece Title One</div>
+          <p class="article-lede">A brief excerpt</p>
+        </div>
+        <div class="article-meta">2024</div>
+      </a>
+
+    </section>
+
+        <section class="category">
+      <h3 class="category-label">Poems</h3>
+
+      <a href="#" class="article">
+        <div class="article-body">
+          <div class="article-title">Piece Title One</div>
+          <p class="article-lede">A brief excerpt</p>
+        </div>
+        <div class="article-meta">2024</div>
+      </a>
+
+    </section>
+
+  </main>
+
+  <footer>
+    &copy; 2026 Intracoastal Dispatch
+  </footer>
+
+</body>
+</html>

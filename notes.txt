@@ -1,0 +1,16 @@
+PEMDAS Notes - 
+    * Display the "Path" of success via showing the colors in a row
+        - Progress bar underneath squares, fills up with colors as chosen. Current score is shown in most recent box
+    * Fix target score graphic
+    * Fix restart button
+    * "lock" difficulty once won
+    * Keep an archive of pemdas games
+
+Home Page - 
+    * Enlarge Edition banner
+    * Change menu bar to Home, Archive, Specifics, About
+
+General
+    * Create About Page
+    * Create Archive Folder + Page
+    * Create specifics page for individual articles? IDK yet

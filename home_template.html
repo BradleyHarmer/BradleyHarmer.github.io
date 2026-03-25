@@ -79,21 +79,28 @@
                 <div class="box row2-col1">x2</div>
                 <div class="box row2-col2">x4</div>
                 <div class="box row2-col3">+2</div> -->
-
+            </div>
+            <div class="score-check">
+                <p><span>Score: <span id="score">0</span></span></p>
+                <div class="progress-bar" id="progressBar">
+                    <div class="progress-box"></div>
+                    <div class="progress-box"></div>
+                    <div class="progress-box"></div>
+                    <div class="progress-box"></div>
+                    <div class="progress-box"></div>
+                    <div class="progress-box"></div>
+                </div>
+                <p><span>Target: <span id="target">0</span></span></p>
             </div>
             <div class="pemdas-info">
                 <button class="pemdas-button" id="restart">Restart</button>
-                <div class="score-check">
-                    <p><span>Current Score: <span id="score">0</span></span></p>
-                    <p><span style="margin-left: 20px;">Target: <span id="target">0</span></span></p>
-                </div>
                 <div class="difficulty-controls">
                     <button class="difficulty-button" data-difficulty="easy">Easy</button>
                     <button class="difficulty-button" data-difficulty="medium">Medium</button>
                     <button class="difficulty-button" data-difficulty="hard">Hard</button>
                 </div>
             </div>
-            
+
             <p><a href="pemdas.html">Go to PEMDAS</a></p>
             <script>
                 // Three difficulty configurations
@@ -126,6 +133,7 @@
 
                 let currentDifficulty = 'medium';
                 let score = 0;
+                let clickCount = 0;
 
                 const scoreDisplay = document.getElementById("score");
                 const targetDisplay = document.getElementById("target");
@@ -145,6 +153,10 @@
                     scoreDisplay.textContent = score;
                     targetDisplay.textContent = cfg.target;
                     resultIndicator.textContent = '';
+                    clickCount = 0;
+                    document.querySelectorAll('#progressBar .progress-box').forEach(pb => {
+                        pb.style.backgroundColor = '#666';
+                    });
 
                     cfg.rows.forEach((rowData, rowIndex) => {
                         rowData.forEach((boxData, colIndex) => {
@@ -167,6 +179,11 @@
 
                                 scoreDisplay.textContent = score;
                                 box.classList.add("used");
+                                const progressBoxes = document.querySelectorAll('#progressBar .progress-box');
+                                if (clickCount < progressBoxes.length) {
+                                    progressBoxes[clickCount].style.backgroundColor = boxData.color;
+                                }
+                                clickCount++;
 
                                 if (document.querySelectorAll(".pemdas-content .box:not(.used)").length === 0) {
                                     if (score === cfg.target) {

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Article Title — Intracoastal Dispatch</title>
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --black: #111111;
+      --dark-grey: #333333;
+      --mid-grey: #666666;
+      --light-grey: #aaaaaa;
+      --rule: #cccccc;
+      --bg: #ffffff;
+    }
+
+    body {
+      font-family: Georgia, 'Times New Roman', serif;
+      background: var(--bg);
+      color: var(--dark-grey);
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    /* ── Header ── */
+    header {
+      border-bottom: 3px double var(--black);
+      padding: 24px 48px 0;
+    }
+
+    .masthead {
+      text-align: center;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .masthead h1 {
+      font-size: 3rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--black);
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .masthead a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      padding: 12px 0;
+    }
+
+    nav a {
+      text-decoration: none;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--dark-grey);
+      transition: color 0.15s;
+    }
+
+    nav a:hover {
+      color: var(--black);
+    }
+
+    /* ── Article Layout ── */
+    main {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 56px 24px 100px;
+    }
+
+    /* ── Article Header ── */
+    .poem-header {
+      margin-bottom: 40px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .poem-section {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--mid-grey);
+      margin-bottom: 14px;
+    }
+
+    .poem-title {
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: var(--black);
+      line-height: 1.15;
+      letter-spacing: 0.01em;
+      margin-bottom: 14px;
+    }
+
+
+    .poem-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.75rem;
+      color: var(--light-grey);
+      letter-spacing: 0.04em;
+    }
+
+    .poem-meta .sep {
+      color: var(--rule);
+    }
+
+    /* ── Body Copy ── */
+    .poem-body p {
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: var(--dark-grey);
+    }
+
+
+
+    /* ── Footer ── */
+    footer {
+      border-top: 1px solid var(--rule);
+      margin-top: 60px;
+      padding: 20px 24px;
+      text-align: center;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.75rem;
+      color: var(--light-grey);
+      letter-spacing: 0.05em;
+    }
+
+    @media (max-width: 600px) {
+      header { padding: 20px 20px 0; }
+      .masthead h1 { font-size: 2rem; }
+      .article-title { font-size: 1.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="masthead">
+      <a href="../home.html"><h1>Intracoastal Dispatch</h1></a>
+    </div>
+    <nav>
+      <a href="../home.html">Home</a>
+      <a href="#">About</a>
+    </nav>
+  </header>
+
+  <main>
+    <article>
+
+      <header class="poem-header">
+        <!-- Section label: Fiction / Essays / Projects -->
+        <p class="poem-section">Fiction</p>
+
+        <!-- Title -->
+        <h1 class="poem-title">Article Title</h1>
+
+        <!-- Subtitle — remove this element if not needed -->
+        <p class="poem-subtitle">Subtitle</p>
+
+        <!-- Meta: date and word count -->
+        <div class="poem-meta">
+          <span>Month 9999</span>
+          <span class="sep">&middot;</span>
+          <span>0000 words</span>
+        </div>
+      </header>
+
+      <!-- ── Body ──────────────────────────────────────
+           Write article content here.
+
+           Available elements:
+             <p>          — body paragraph (first gets a drop cap)
+             <h2>         — section heading
+             <h3>         — small-caps subheading
+             <blockquote> — pull quote
+             <hr>         — section break
+      ─────────────────────────────────────────────── -->
+      <div class="poem-body">
+
+        <p>The opening stanza of the poem</p>
+        <p>Can be short or long</p>
+        <p>Depending on Depending</p>
+        <p>&nbsp;</p>
+        <p>Stanza 2 is much the same</p>
+        <p>Only after a line break</p>
+        <p>And you can stop here or continue on</p>
+        <p>&nbsp;</p>
+
+      </div>
+
+    </article>
+  </main>
+
+  <footer>
+    2026 Intracoastal Dispatch
+  </footer>
+
+</body>
+</html>

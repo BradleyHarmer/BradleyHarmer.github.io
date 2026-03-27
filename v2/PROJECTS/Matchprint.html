@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Article Title — Intracoastal Dispatch</title>
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --black: #111111;
+      --dark-grey: #333333;
+      --mid-grey: #666666;
+      --light-grey: #aaaaaa;
+      --rule: #cccccc;
+      --bg: #ffffff;
+    }
+
+    body {
+      font-family: Georgia, 'Times New Roman', serif;
+      background: var(--bg);
+      color: var(--dark-grey);
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    /* ── Header ── */
+    header {
+      border-bottom: 3px double var(--black);
+      padding: 24px 48px 0;
+    }
+
+    .masthead {
+      text-align: center;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .masthead h1 {
+      font-size: 3rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--black);
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .masthead a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      padding: 12px 0;
+    }
+
+    nav a {
+      text-decoration: none;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--dark-grey);
+      transition: color 0.15s;
+    }
+
+    nav a:hover {
+      color: var(--black);
+    }
+
+    /* ── Article Layout ── */
+    main {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 56px 24px 100px;
+    }
+
+    /* ── Article Header ── */
+    .article-header {
+      margin-bottom: 40px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .article-section {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--mid-grey);
+      margin-bottom: 14px;
+    }
+
+    .article-title {
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: var(--black);
+      line-height: 1.15;
+      letter-spacing: 0.01em;
+      margin-bottom: 14px;
+    }
+
+    .article-subtitle {
+      font-size: 1.15rem;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--mid-grey);
+      line-height: 1.45;
+      margin-bottom: 20px;
+    }
+
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.75rem;
+      color: var(--light-grey);
+      letter-spacing: 0.04em;
+    }
+
+    .article-meta .sep {
+      color: var(--rule);
+    }
+
+    /* ── Body Copy ── */
+    .article-body p {
+      margin-bottom: 1.5em;
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: var(--dark-grey);
+    }
+
+    .article-body p:first-child::first-letter {
+      font-size: 3.4em;
+      font-weight: 700;
+      color: var(--black);
+      float: left;
+      line-height: 0.8;
+      margin: 0.08em 0.08em 0 0;
+    }
+
+    .article-body h2 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--black);
+      margin: 2.4em 0 0.6em;
+      letter-spacing: 0.01em;
+    }
+
+    .article-body h3 {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--mid-grey);
+      margin: 2em 0 0.5em;
+    }
+
+    .article-body blockquote {
+      border-left: 3px solid var(--black);
+      margin: 2em 0;
+      padding: 4px 0 4px 24px;
+      font-style: italic;
+      color: var(--mid-grey);
+      font-size: 1.05rem;
+      line-height: 1.65;
+    }
+
+    .article-body hr {
+      border: none;
+      border-top: 1px solid var(--rule);
+      margin: 2.5em 0;
+    }
+
+    .article-body img {
+      max-width: 100%;
+      height: auto;
+      margin: 1.5em 0;
+    }
+
+    /* ── Footer ── */
+    footer {
+      border-top: 1px solid var(--rule);
+      margin-top: 60px;
+      padding: 20px 24px;
+      text-align: center;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.75rem;
+      color: var(--light-grey);
+      letter-spacing: 0.05em;
+    }
+
+    @media (max-width: 600px) {
+      header { padding: 20px 20px 0; }
+      .masthead h1 { font-size: 2rem; }
+      .article-title { font-size: 1.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="masthead">
+      <a href="../home.html"><h1>Intracoastal Dispatch</h1></a>
+    </div>
+    <nav>
+      <a href="../home.html">Home</a>
+      <a href="#">About</a>
+    </nav>
+  </header>
+
+  <main>
+    <article>
+
+      <header class="article-header">
+        <!-- Section label: Fiction / Essays / Projects -->
+        <p class="article-section">Tennis</p>
+
+        <!-- Title -->
+        <h1 class="article-title">Introducing: Matchprint</h1>
+
+        <!-- Subtitle — remove this element if not needed -->
+        <p class="article-subtitle">Visualizing the Volatility of Tennis Point By Point</p>
+
+        <!-- Meta: date and word count -->
+        <div class="article-meta">
+          <span>November 11, 2025</span>
+          <span class="sep">&middot;</span>
+          <span>1931 words</span>
+        </div>
+      </header>
+
+      <!-- ── Body ──────────────────────────────────────
+           Write article content here.
+
+           Available elements:
+             <p>          — body paragraph (first gets a drop cap)
+             <h2>         — section heading
+             <h3>         — small-caps subheading
+             <blockquote> — pull quote
+             <hr>         — section break
+      ─────────────────────────────────────────────── -->
+      <div class="article-body">
+
+<p><span style="font-weight: 400;">Coco Gauff is an icon. She is a global superstar, one of the best athletes in her sport, a champion of the most prestigious tournaments in the world. Yet, if you follow the sport of tennis at all, you probably have one thought that accompanies you during her matches &mdash; </span><em><span style="font-weight: 400;">Oh, God, how is she winning this match&hellip;of course she&rsquo;s winning this match!</span></em><span style="font-weight: 400;"> Coco has made something of an art out of Winning Ugly &mdash; her former coach </span><em><span style="font-weight: 400;">literally</span></em><span style="font-weight: 400;"> wrote the book on it! &mdash; with an emphasis on Winning. She has made it to world ranking number 2 and won 2 grand slam tournaments all at the age of 21! She beat Venus Williams when she was 15 years old! And she has had all of this success with a serve that, at its worst, will make you want to look away&nbsp; and a forehand that is routinely picked apart by the very best. What makes her special is her spirit and resolve, though plenty of tenacious players have come and gone without any of her success. She has genuine, obvious, maybe even generational talent and she has done everything possible to capitalize on her potential.&nbsp;</span></p>
+
+<p><span style="font-weight: 400;">Watching her matches this year has often been a draining emotional experience and this was highlighted at this year's US Open when, days before the start of the tournament, she fired some of her coaching team and brought in a Serving Expert to attempt to solve her yips. What followed was some of the most gutsy, emotional, appalling tennis you will ever see. Tens of thousands of people watched live as a young superstar deconstructed the most crucial part of her game in the most vulnerable position imaginable. There were double faults, there were errors, and there were tears, oh were there tears. But there were also wins. Remarkably and damn near inexplicably there were wins. And no, it was not pretty, but it was Coco. It was an athlete at the top of the world who knew deep down that something needed to change &mdash; that she could be better.&nbsp;</span></p>
+
+<p><span style="font-weight: 400;">A limitation of a static graphic like this one is that it cannot contain the atmosphere of a match. You can&rsquo;t tell how it felt to watch Coco fight through every demon towards a meandering victory, but you can see each turn the match took. For those that watch this match, and any other given match, a Matchprint can at least serve as evidence of the experience. Coco would go on to win 2 more nervy, upsetting matches before falling to the just-as-almighty Naomi Osaka in the 4th Round. Her struggles largely remain, but so does her intangible ability to win matches. For the sake of my heart, I look forward to the day I don&rsquo;t have to clench my breath after a first serve goes awry, and for the sake of the WTA, I hope they are prepared for the day she figures it out.&nbsp;</span></p>
+
+<p><strong>Jannik Sinner d. Alexander Bublik 6-1 6-1 6-1 US Open 2025</strong></p>
+<p><span style="font-weight: 400;"><img src="../IMAGES/2025_USO_Sinner_vs_Bublik.png"  /></span></p>
+
+<p><span style="font-weight: 400;">Not every match can be breathtaking. Some matches &mdash; some players &mdash; are simply too clinical for drama to awaken. By Sascha Bublik&rsquo;s own words, Jannik Sinner is one of those players. Sinner is one of two (we&rsquo;ll get to him) players of his generation who has risen clear above the crowd of contemporaries. And he has done so in an understated but ruthless style. He is not dripping with charisma &mdash; he is a slender Italian with the quiet demeanor of someone who grew up in the peace of snow-capped mountains &mdash; but his tennis is otherworldly. He steadily rose to prominence when all eyes were on another </span><span style="font-weight: 400;">phenomic </span><span style="font-weight: 400;">champion (remain patient, please) and gained the status of World number 1 through a relentless 2024 season. Then, of course, came controversy. And he was allowed to silently serve out a 3 month ban at the beginning of the 2025 season.&nbsp;</span></p>
+
+<p><span style="font-weight: 400;">For most people, a distraction of this magnitude would have heavy repercussions of their results, but Sinner has always liked to let his tennis do the talking. He came back and immediately continued his habit of only ever losing to one guy (What did I say?) and beating the rest. He&rsquo;d go on to win 2 of the 4 grand slam tournaments, and many, many results like the one above.&nbsp;</span></p>
+
+<p><span style="font-weight: 400;">This match is meant to encapsulate the nihilistic futility tennis can impose on its contestants when things just aren&rsquo;t going your way. By necessity of the scoring system, a beatdown is obvious and embarrassing. By the end of this match, Bublik was no closer to winning than he was at the very start. Hours of work, dozens of points and nothing to show for it. Three measly games that add up to Zero. Bublik has a good spirit about these things &mdash; he is one of the more unserious but still fun players on the tour &mdash; and he even gave Sinner a good battle at an earlier tournament. But he will never have what Sinner has. In a sport in which consistency is perhaps the shining attribute, Sinner is the most consistent. He will stay with you, he will pummel you, and he will slyly walk to his towel box before repeating his tactics. If only he had an equal&hellip;</span></p>
+
+<p><strong>Carlos Alcaraz d. Jannik Sinner (i don&rsquo;t even know the score man) Roland Garros 2025</strong></p>
+<p><span style="font-weight: 400;"><img src="../IMAGES/2025_RG_Sinner_vs_Alcaraz.png"  /></span></p>
+
+<p><span style="font-weight: 400;">Welcome to the match that gave me this idea. I had long been a fan of Carlos Alcaraz, and an admirer of Jannik Sinner prior to this match. I thought I knew what I was getting with these two. But the first thought I had after this match was: </span><em><span style="font-weight: 400;">I need help understanding what just happened</span></em><span style="font-weight: 400;">. For the uninitiated, let me try to explain. Carlos Alcaraz burst violently onto the scene at a time of dying stars; Nadal was ailing, Federer was old&hellip;and ailing, and Djokovic was mostly doing okay. When so many of the next-to-be seemed to be patiently waiting their turn, Alcaraz went out and took it &mdash; he won his first grand slam at the age of 18 and has proceeded to win at least one every year since. He was winning in a way that felt different; a combination of all of the greats with the flair of a kid who very much grew up online and enjoyed dazzling the crowd.&nbsp;</span></p>
+
+<p><span style="font-weight: 400;">And then there was Sinner, a year older and yet a year later in his breakout than Alcaraz. His was a steady climb &mdash; doing it the-right-way until he became </span><em><span style="font-weight: 400;">nearly </span></em><span style="font-weight: 400;">unstoppable. And I say nearly because of Alcaraz. In 2024, when Sinner was thrashing everyone, he was losing to Alcaraz. By the time of this match, Alcaraz had turned the head-to-head matchup from an even affair to a runaway in his own favor. And yet, the two had never met on the biggest stage &mdash; the final of a grand slam tournament. And finally, a few weeks removed from Sinner&rsquo;s return and one year removed from Alcaraz&rsquo;s previous victory on the same court over Sascha Zverev, the two prepared for a meeting.&nbsp;</span></p>
+
+<p><span style="font-weight: 400;">Expectations were sky-high and they were absolutely demolished. And yet, how close we were to this match being a straightforward win for Sinner. Indeed, it looked like he was going to run away with it. No amount of Alcaraz magic was going to be enough to trouble the machine of Jannik Sinner, until there was. Carlos Alcaraz saved three match points in the fourth set, and then a few more hours of crazy proceeded. And you can see this moment clearly; Sinner was one point away from victory three times in a row, until he was two points away, then three&hellip; then more, until suddenly we are in a fifth set and you can throw every point played up to now out of the window because each player is the same 24 points from victory. That is the floor. And in the end Alcaraz won, tennis won, Paris won, and only Sinner lost &mdash; but only by the strictest definition.&nbsp;</span></p>
+
+<p><span style="font-weight: 400;">It wasn&rsquo;t just that this match was long and full of storybook twists. It was a clash of everything I love about the sport &mdash; varying styles of play and personality, tense moments stretched out to infinity, relentless effort, and in the end a mutual appreciation for the drama of Sport from the only two actors on a lonely stage. It should be clear that Matchprints are no substitute to watching the event &mdash; please, please go watch the tennis &mdash; but at least for me, they serve as a memento to a time and place that can not be replayed, not really. You can rewatch the highlights, and I have, but you will not relive a match as it was. Matchprints, at the very least, show you the kinetic energy of each match. They show you why the best players must fight for each point like it&rsquo;s their last and why it&rsquo;s worth crying for when you fall short. At the end of it all, it&rsquo;s just tennis, but it doesn&rsquo;t have to be.&nbsp;</span></p>
+
+      </div>
+
+    </article>
+  </main>
+
+  <footer>
+    2026 Intracoastal Dispatch
+  </footer>
+
+</body>
+</html>

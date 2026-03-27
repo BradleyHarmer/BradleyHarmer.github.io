@@ -97,6 +97,7 @@
 
     .column {
       padding: 28px 24px;
+      background-color: white
     }
 
     .column + .column {
@@ -147,11 +148,19 @@
     }
 
     .entry-title {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
       font-size: 1.05rem;
       font-weight: 700;
       color: var(--black);
       line-height: 1.3;
-      margin-bottom: 6px;
+    }
+
+    .entry-subtitle {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.85rem;
+      font-style: italic;
+      font-weight: 500;
+      color: rgb(112, 186, 196);
     }
 
     .entry-lede {
@@ -193,6 +202,9 @@
       color: var(--mid-grey);
       margin-bottom: 20px;
     }
+    .widgets-section a {
+      text-decoration: none;
+    }
 
     .widgets-grid {
       display: grid;
@@ -201,11 +213,29 @@
     }
 
     .widget {
-      background: var(--section-bg);
+      background: rgb(253, 250, 212);
       border: 1px solid var(--rule);
       min-height: 140px;
       padding: 20px;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 1.75rem;
+      font-weight: 700;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: var(--black);
+      line-height: 1.3;
     }
+    .widget p
+      {
+        text-align: center;
+      }
+    .widget:hover {
+      border-color: var(--black);
+      filter: brightness(1.1);
+      transition: border-color 0.15s, filter 0.15s;
+    }
+
 
     /* ── Footer ── */
     footer {
@@ -269,69 +299,79 @@
 
       <!-- Fiction -->
       <div class="column">
-        <div class="column-header">Fiction <a href="FICTION/" class="column-header-link">All Fiction &rarr;</a></div>
+        <div class="column-header">Fiction <a href="FICTION/CATALOGUE.html" class="column-header-link">All Fiction &rarr;</a></div>
 
         <div class="entry">
-          <div class="entry-title">Piece Title One</div>
-          <p class="entry-lede">A brief excerpt or lede goes here — just enough to draw the reader in and give a sense of the work's voice and subject matter.</p>
-          <a href="#" class="entry-link">Read more</a>
+          <div class="entry-title">Do Not Turn Left At The Crossroads</div>
+          <div class="entry-subtitle">Short Story — December 13, 2025</div>
+          <p class="entry-lede">"And as he walks the rhythm of the road consumes him and he doesn’t bother to look at the signs. His horizon becomes his existence. He feels desire synthesize out of a longing for meaning and so he walks on to the horizon hoping to bring something into this world with him."</p>
+          <a href="FICTION/Crossroads.html" class="entry-link">Read more</a>
         </div>
 
         <div class="entry">
-          <div class="entry-title">Piece Title Two</div>
-          <p class="entry-lede">A brief excerpt or lede goes here — just enough to draw the reader in and give a sense of the work's voice and subject matter.</p>
-          <a href="#" class="entry-link">Read more</a>
+          <div class="entry-title">Civil Twilight</div>
+          <div class="entry-subtitle">Short Story — March 25, 2026</div>
+          <p class="entry-lede">"You are sitting on the edge of your bed drenched by the memory of a cold and lifeless sea."</p>
+          <a href="FICTION/Civil_Twilight.html" class="entry-link">Read more</a>
         </div>
 
         <div class="entry">
-          <div class="entry-title">Piece Title Three</div>
-          <p class="entry-lede">A brief excerpt or lede goes here — just enough to draw the reader in and give a sense of the work's voice and subject matter.</p>
-          <a href="#" class="entry-link">Read more</a>
+          <div class="entry-title">Maybe I am</div>
+          <div class="entry-subtitle">Poetry — May 30, 2025</div>
+          <p class="entry-lede">"But maybe restful death is presumptuous /And words like rest have no meaning /If ghosts have stopped paying attention"</p>
+          <a href="FICTION/Maybe_I_Am.html" class="entry-link">Read more</a>
         </div>
       </div>
 
       <!-- Essays -->
       <div class="column">
-        <div class="column-header">Essays <a href="ESSAYS/" class="column-header-link">All Essays &rarr;</a></div>
+        <div class="column-header">Essays <a href="ESSAYS/CATALOGUE.html" class="column-header-link">All Essays &rarr;</a></div>
 
         <div class="entry">
-          <div class="entry-title">Piece Title One</div>
-          <p class="entry-lede">A brief excerpt or lede goes here — just enough to draw the reader in and give a sense of the work's voice and subject matter.</p>
-          <a href="#" class="entry-link">Read more</a>
+          <div class="entry-title">In Defense of Florida October</div>
+          <div class="entry-subtitle">Opinion — November 16, 2025</div>
+          <p class="entry-lede">In his clear disdain and distrust for the feeling of Florida's Fall and the people who enjoy it, John Steinbeck shows that Florida's endemic population has been misunderstood for decades.</p>
+          <a href="ESSAYS/Florida_October.html" class="entry-link">Read more</a>
         </div>
 
         <div class="entry">
-          <div class="entry-title">Piece Title Two</div>
-          <p class="entry-lede">A brief excerpt or lede goes here — just enough to draw the reader in and give a sense of the work's voice and subject matter.</p>
-          <a href="#" class="entry-link">Read more</a>
+          <div class="entry-title">Those With Scaly Wings</div>
+          <div class="entry-subtitle">Observation — October 5, 2025</div>
+          <p class="entry-lede">On the occasions where I remember to see the world, I often encounter beautiful creatures such as butterflies.</p>
+          <a href="ESSAYS/Scaly_Wings.html" class="entry-link">Read more</a>
         </div>
 
         <div class="entry">
-          <div class="entry-title">Piece Title Three</div>
-          <p class="entry-lede">A brief excerpt or lede goes here — just enough to draw the reader in and give a sense of the work's voice and subject matter.</p>
-          <a href="#" class="entry-link">Read more</a>
+          <div class="entry-title">Living and Dying in Brainerd, Minnesota</div>
+          <div class="entry-subtitle">Review — October 5, 2025</div>
+
+          <p class="entry-lede">In Fargo, you will either be broken by deolation or a bloody bystander unless you can accept your own unsubtantiality.</p>
+          <a href="ESSAYS/Fargo.html" class="entry-link">Read more</a>
         </div>
       </div>
 
       <!-- Projects -->
       <div class="column">
-        <div class="column-header">Projects <a href="PROJECTS/" class="column-header-link">All Projects &rarr;</a></div>
+        <div class="column-header">Projects <a href="PROJECTS/CATALOGUE.html" class="column-header-link">All Projects &rarr;</a></div>
 
         <div class="entry">
-          <div class="entry-title">Piece Title One</div>
-          <p class="entry-lede">A brief excerpt or lede goes here — just enough to draw the reader in and give a sense of the work's voice and subject matter.</p>
+          <div class="entry-title">Introducing: Matchprint</div>
+          <div class="entry-subtitle">Sports Research — November 11, 2025</div>
+          <p class="entry-lede">Tennis's scoreboard does not tell the full story. Following the path of a match from the first point to the last can reveal the unique scintillation of the sport. </p>
+          <a href="PROJECTS/Matchprint.html" class="entry-link">Read more</a>
+        </div>
+
+        <div class="entry">
+          <div class="entry-title">Project Title Two</div>
+          <div class="entry-subtitle">Project — TBD</div>
+          <p class="entry-lede">A brief explanation of the project</p>
           <a href="#" class="entry-link">Read more</a>
         </div>
 
         <div class="entry">
-          <div class="entry-title">Piece Title Two</div>
-          <p class="entry-lede">A brief excerpt or lede goes here — just enough to draw the reader in and give a sense of the work's voice and subject matter.</p>
-          <a href="#" class="entry-link">Read more</a>
-        </div>
-
-        <div class="entry">
-          <div class="entry-title">Piece Title Three</div>
-          <p class="entry-lede">A brief excerpt or lede goes here — just enough to draw the reader in and give a sense of the work's voice and subject matter.</p>
+          <div class="entry-title">Project Title Three</div>
+          <div class="entry-subtitle">Project — TBD</div>
+          <p class="entry-lede">A brief explanation of the project</p>
           <a href="#" class="entry-link">Read more</a>
         </div>
       </div>
@@ -342,19 +382,46 @@
     <div class="widgets-section">
       <div class="widgets-header">Widgets</div>
       <div class="widgets-grid">
-        <div class="widget"></div>
-        <div class="widget"></div>
-        <div class="widget"></div>
-        <div class="widget"></div>
-        <div class="widget"></div>
-        <div class="widget"></div>
+        
+          
+          <a href="PROJECTS/password.html" >
+            <div class="widget">
+              <p>Password Generator</p>
+            </div>
+          </a>
+        
+        <a href="PROJECTS/pemdas.html" >
+            <div class="widget">
+              <p>PEMDAS Puzzle</p>
+            </div>
+          </a>
+        <a href="#" >
+            <div class="widget">
+              <p>Matchprint Catalogue</p>
+            </div>
+          </a>
+        <a href="#" >
+            <div class="widget">
+              <p></p>
+            </div>
+          </a>
+        <a href="#" >
+            <div class="widget">
+              <p></p>
+            </div>
+          </a>
+          <a href="#" >
+            <div class="widget">
+              <p></p>
+            </div>
+          </a>
       </div>
     </div>
 
   </main>
 
   <footer>
-    &copy; 2026 Intracoastal Dispatch
+    Intracoastal Dispatch
   </footer>
 
 </body>

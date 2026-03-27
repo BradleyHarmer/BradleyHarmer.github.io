@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Article Title — Intracoastal Dispatch</title>
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --black: #111111;
+      --dark-grey: #333333;
+      --mid-grey: #666666;
+      --light-grey: #aaaaaa;
+      --rule: #cccccc;
+      --bg: #ffffff;
+    }
+
+    body {
+      font-family: Georgia, 'Times New Roman', serif;
+      background: var(--bg);
+      color: var(--dark-grey);
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    /* ── Header ── */
+    header {
+      border-bottom: 3px double var(--black);
+      padding: 24px 48px 0;
+    }
+
+    .masthead {
+      text-align: center;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .masthead h1 {
+      font-size: 3rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--black);
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .masthead a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      padding: 12px 0;
+    }
+
+    nav a {
+      text-decoration: none;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--dark-grey);
+      transition: color 0.15s;
+    }
+
+    nav a:hover {
+      color: var(--black);
+    }
+
+    /* ── Article Layout ── */
+    main {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 56px 24px 100px;
+    }
+
+    /* ── Article Header ── */
+    .article-header {
+      margin-bottom: 40px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .article-section {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--mid-grey);
+      margin-bottom: 14px;
+    }
+
+    .article-title {
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: var(--black);
+      line-height: 1.15;
+      letter-spacing: 0.01em;
+      margin-bottom: 14px;
+    }
+
+    .article-subtitle {
+      font-size: 1.15rem;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--mid-grey);
+      line-height: 1.45;
+      margin-bottom: 20px;
+    }
+
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.75rem;
+      color: var(--light-grey);
+      letter-spacing: 0.04em;
+    }
+
+    .article-meta .sep {
+      color: var(--rule);
+    }
+
+    /* ── Body Copy ── */
+    .article-body p {
+      margin-bottom: 1.5em;
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: var(--dark-grey);
+    }
+
+    .article-body p:first-child::first-letter {
+      font-size: 3.4em;
+      font-weight: 700;
+      color: var(--black);
+      float: left;
+      line-height: 0.8;
+      margin: 0.08em 0.08em 0 0;
+    }
+
+    .article-body h2 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--black);
+      margin: 2.4em 0 0.6em;
+      letter-spacing: 0.01em;
+    }
+
+    .article-body h3 {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--mid-grey);
+      margin: 2em 0 0.5em;
+    }
+
+    .article-body blockquote {
+      border-left: 3px solid var(--black);
+      margin: 2em 0;
+      padding: 4px 0 4px 24px;
+      font-style: italic;
+      color: var(--mid-grey);
+      font-size: 1.05rem;
+      line-height: 1.65;
+    }
+
+    .article-body hr {
+      border: none;
+      border-top: 1px solid var(--rule);
+      margin: 2.5em 0;
+    }
+
+    .article-body img {
+      max-width: 100%;
+      height: auto;
+      margin: 1.5em 0;
+    }
+
+    /* ── Footer ── */
+    footer {
+      border-top: 1px solid var(--rule);
+      margin-top: 60px;
+      padding: 20px 24px;
+      text-align: center;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.75rem;
+      color: var(--light-grey);
+      letter-spacing: 0.05em;
+    }
+
+    @media (max-width: 600px) {
+      header { padding: 20px 20px 0; }
+      .masthead h1 { font-size: 2rem; }
+      .article-title { font-size: 1.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="masthead">
+      <a href="../home.html"><h1>Intracoastal Dispatch</h1></a>
+    </div>
+    <nav>
+      <a href="../home.html">Home</a>
+      <a href="#">About</a>
+    </nav>
+  </header>
+
+  <main>
+    <article>
+
+      <header class="article-header">
+        <!-- Section label: Fiction / Essays / Projects -->
+        <p class="article-section">Review</p>
+
+        <!-- Title -->
+        <h1 class="article-title">Living and Dying in Brainerd, Minnesota</h1>
+
+        <!-- Subtitle — remove this element if not needed -->
+        <p class="article-subtitle">A belated review of Fargo</p>
+
+        <!-- Meta: date and word count -->
+        <div class="article-meta">
+          <span>October 5, 2025</span>
+          <span class="sep">&middot;</span>
+          <span>1687 words</span>
+        </div>
+      </header>
+
+      <!-- ── Body ──────────────────────────────────────
+           Write article content here.
+
+           Available elements:
+             <p>          — body paragraph (first gets a drop cap)
+             <h2>         — section heading
+             <h3>         — small-caps subheading
+             <blockquote> — pull quote
+             <hr>         — section break
+      ─────────────────────────────────────────────── -->
+      <div class="article-body">
+
+        <p><span style="font-weight: 400;">Marlboro Man, you could say, is something of a closed book. And with such little given to us about him, any analysis is mostly conjecture. But that won&rsquo;t stop me from theorizing. I think about the end of the film, when he is sitting in the back of a police car and asked why he&rsquo;d killed all those people for </span><em><span style="font-weight: 400;">just a little bit of money</span></em><span style="font-weight: 400;">. I think about the look in his eyes &mdash; dead. Unlike his partner, it was never about the money. It&rsquo;s hard to say exactly what he </span><em><span style="font-weight: 400;">was </span></em><span style="font-weight: 400;">after, besides a desire to exercise his bit of control over the world.&nbsp;</span></p>
+<p><span style="font-weight: 400;">There are two things we do know about Marlboro Man: he is quiet, he likes order. He ties up every loose end, sometimes literally eviscerating them, and definitely doesn&rsquo;t like to feel slighted. Marlboro Man feels more self aware than most of the other characters. He can feel the absurdity around him and has reacted by closing himself off. He is driven by an impulse to maintain a world that is cold and heartless. He was not in it for the money. If he was in it for anything at all, it was as an excuse to keep the world as he saw it. At some point in his life he stopped responding and every deviation from his darkened perspective became an affront to his reality.&nbsp;</span></p>
+
+<h2>Plain Pathetic Narcissism</h2>
+<p><span style="font-weight: 400;">Jerry may be the worst of them all. He comes from the same ilk as every dictator and commander with plausible deniability. He is a man so deeply unsatisfied and ashamed of himself, he has no qualms to pawn off his own wife. He is so disinterested in anyone but himself he forgets to tell his son his mom had been kidnapped. His motivations are clear and familiar; he feels intimidated by the success of his wife&rsquo;s family, he feels stuck in his career and life, and he desperately wants to be a man of his own making. And to be that Self-Made Man, he will use anyone he needs to.&nbsp;</span></p>
+
+<p><span style="font-weight: 400;">Contrast Jerry with his wife, Jean. We don&rsquo;t see much of her but what we do see is a charismatic, kind woman stuck taking care of her family without the help of her husband. There are two scenes I think that define her, and in comparison, define Jerry. The first is when the family is at dinner. Their son asks to leave so he can go to McDonalds to meet some friends. Permission is given by Jean, and she even overrules her crotchety, old-school father. And all the while Jerry sits silently, self-absorbed with the pitch he is preparing to give to his father-in-law. The second scene happens directly prior to her kidnapping. She is on the couch, knitting, while watching a program on TV. The two hosts are smilingly inviting the audience to come along on some exotic trip, or cruise. The details aren&rsquo;t important, it&rsquo;s the fantasy that matters for the prospective audience. And Jean, as a stay-at-home mom in a frictionless suburb, is the prime customer for instilling a sense of discomfort through options of vaguely better, yet ephemeral lives. We don&rsquo;t know much about her before she is murdered off-screen. Is she happy to e a Good Suburban Wife? Does she get frustrated with Jerry&rsquo;s apathy and uselessness? We aren&rsquo;t shown. What we are shown is a woman who tried, who cared, and who, at the very last moments of normalcy in her life, smiled at the prospect of better places.&nbsp;</span></p>
+
+<p><span style="font-weight: 400;">Jerry&rsquo;s story ended as he lived: pathetically. After abandoning his family, he is eventually caught by local police. Because he is not clever enough, lacks the imagination for anything better. His inability to even try to feign contentedness leads to the death of six people. It is a failure of constitution and a story of selfish treachery that can only be accomplished by someone let into the trust of a community and family. Jerry had every chance to be happy, but what he was after was poisonous.&nbsp;</span></p>
+
+<p><strong>And It&rsquo;s Such A Beautiful Day</strong></p>
+<p><span style="font-weight: 400;">So how do these scions of competence meet their end? Mostly by solid, textbook detective work. Enter our hero, Marge. Seven months pregnant, she systematically follows the leads until the suspects are caught. It&rsquo;s not quite dispassionate, but the expected verve is not there. She does not take the murders personally &mdash; she has a job to do, and she&rsquo;ll do it, but she has bigger concerns. That is the biggest separation from the other characters. She has a life and community that is deep enough to live on constantly in the background of her life. When every choice stops being life or death, life tends to happen anyway.&nbsp;</span></p>
+
+<p><span style="font-weight: 400;">Marge and Norm have fought off all the destructive forces that permeate the setting. They have no reckless ambition &mdash; they do their jobs, paint mediocre pictures of mallards, and come back to each other at the end of the day. The mechanics of their relationship happen automatically. They help each other on instinct, but remain secure in their own autonomy. And most importantly, they have avoided jaded nihilism and have built a home to be proud of. One that is cluttered and shining with personality. It&rsquo;s not magical but it takes work. You must establish trust with the strangers around you and you must know what you wish to protect.</span></p>
+<p><br /><span style="font-weight: 400;">There are many ways to react to the world of </span><em><span style="font-weight: 400;">Fargo</span></em><span style="font-weight: 400;">, and all the easiest ones are destructive. It takes real concerted effort and empathy to build a life in the tundra; there will always be another storm to clear your progress. But the wrath and callousness can be buffeted by building Little Havens. Find the people with whom you feel safe and build out from there. It is not a call to shelter and remove, but a plea to dig roots and communicate. Become interested in your setting so when a good day comes, you can recognize it for what it is.</span></p>
+
+      </div>
+
+    </article>
+  </main>
+
+  <footer>
+    2026 Intracoastal Dispatch
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Article Title — Intracoastal Dispatch</title>
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --black: #111111;
+      --dark-grey: #333333;
+      --mid-grey: #666666;
+      --light-grey: #aaaaaa;
+      --rule: #cccccc;
+      --bg: #ffffff;
+    }
+
+    body {
+      font-family: Georgia, 'Times New Roman', serif;
+      background: var(--bg);
+      color: var(--dark-grey);
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    /* ── Header ── */
+    header {
+      border-bottom: 3px double var(--black);
+      padding: 24px 48px 0;
+    }
+
+    .masthead {
+      text-align: center;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .masthead h1 {
+      font-size: 3rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--black);
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .masthead a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      padding: 12px 0;
+    }
+
+    nav a {
+      text-decoration: none;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--dark-grey);
+      transition: color 0.15s;
+    }
+
+    nav a:hover {
+      color: var(--black);
+    }
+
+    /* ── Article Layout ── */
+    main {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 56px 24px 100px;
+    }
+
+    /* ── Article Header ── */
+    .article-header {
+      margin-bottom: 40px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .article-section {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--mid-grey);
+      margin-bottom: 14px;
+    }
+
+    .article-title {
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: var(--black);
+      line-height: 1.15;
+      letter-spacing: 0.01em;
+      margin-bottom: 14px;
+    }
+
+    .article-subtitle {
+      font-size: 1.15rem;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--mid-grey);
+      line-height: 1.45;
+      margin-bottom: 20px;
+    }
+
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.75rem;
+      color: var(--light-grey);
+      letter-spacing: 0.04em;
+    }
+
+    .article-meta .sep {
+      color: var(--rule);
+    }
+
+    /* ── Body Copy ── */
+    .article-body p {
+      margin-bottom: 1.5em;
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: var(--dark-grey);
+    }
+
+    .article-body p:first-child::first-letter {
+      font-size: 3.4em;
+      font-weight: 700;
+      color: var(--black);
+      float: left;
+      line-height: 0.8;
+      margin: 0.08em 0.08em 0 0;
+    }
+
+    .article-body h2 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--black);
+      margin: 2.4em 0 0.6em;
+      letter-spacing: 0.01em;
+    }
+
+    .article-body h3 {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--mid-grey);
+      margin: 2em 0 0.5em;
+    }
+
+    .article-body blockquote {
+      border-left: 3px solid var(--black);
+      margin: 2em 0;
+      padding: 4px 0 4px 24px;
+      font-style: italic;
+      color: var(--mid-grey);
+      font-size: 1.05rem;
+      line-height: 1.65;
+    }
+
+    .article-body hr {
+      border: none;
+      border-top: 1px solid var(--rule);
+      margin: 2.5em 0;
+    }
+
+    .article-body img {
+      max-width: 100%;
+      height: auto;
+      margin: 1.5em 0;
+    }
+
+    /* ── Footer ── */
+    footer {
+      border-top: 1px solid var(--rule);
+      margin-top: 60px;
+      padding: 20px 24px;
+      text-align: center;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.75rem;
+      color: var(--light-grey);
+      letter-spacing: 0.05em;
+    }
+
+    @media (max-width: 600px) {
+      header { padding: 20px 20px 0; }
+      .masthead h1 { font-size: 2rem; }
+      .article-title { font-size: 1.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="masthead">
+      <a href="../home.html"><h1>Intracoastal Dispatch</h1></a>
+    </div>
+    <nav>
+      <a href="../home.html">Home</a>
+      <a href="#">About</a>
+    </nav>
+  </header>
+
+  <main>
+    <article>
+
+      <header class="article-header">
+        <!-- Section label: Fiction / Essays / Projects -->
+        <p class="article-section">Short Story</p>
+
+        <!-- Title -->
+        <h1 class="article-title">Civil Twilight</h1>
+
+        <!-- Subtitle — remove this element if not needed -->
+
+        <!-- Meta: date and word count -->
+        <div class="article-meta">
+          <span>March 25, 2026</span>
+          <span class="sep">&middot;</span>
+          <span>1422 words</span>
+        </div>
+      </header>
+
+      <!-- ── Body ──────────────────────────────────────
+           Write article content here.
+
+           Available elements:
+             <p>          — body paragraph (first gets a drop cap)
+             <h2>         — section heading
+             <h3>         — small-caps subheading
+             <blockquote> — pull quote
+             <hr>         — section break
+      ─────────────────────────────────────────────── -->
+      <div class="article-body">
+
+        <p><span style="font-weight: 400;">You are sitting on the edge of your bed drenched by the memory of a cold and lifeless sea. You watch the moon-washed parking lot through the sliver of window parted by the curtains. You can see one tail light of your car, but everything else is secreted behind the nauseating patterns of roses folding into each other &mdash; a dalliance of roses amalgamating into something greater between and across the waves of the curtains. There&rsquo;s not enough moonlight to see your surroundings. You can do nothing but wait for its arrival. You watch the roses.&nbsp;</span></p>
+
+<p><span style="font-weight: 400;">&ldquo;What are you escaping from?&rdquo;</span></p>
+<p><span style="font-weight: 400;">&ldquo;What?&rdquo;</span></p>
+<p><span style="font-weight: 400;">&ldquo;Everyone here is always leaving something, or someone, behind &mdash; trying to, anyway.&rdquo;</span></p>
+<p><span style="font-weight: 400;">You try to look at the bartender but the setting sun is in your eye. You hate questions like these. They&rsquo;re invasive, you find, and pointless. What are you escaping from? Time?&nbsp;</span></p>
+<p><span style="font-weight: 400;">&ldquo;Maybe I&rsquo;m looking for something,&rdquo; you say far too late. The bartender has moved to the other side of the bar and doesn&rsquo;t appear to have heard you. What are you looking for?</span></p>
+
+<p><span style="font-weight: 400;">The last shadow you see is the wingspan of a bird overhead. You know merely by the silhouette it is an osprey, but you don&rsquo;t catch sight of the bird itself. It&rsquo;s becoming harder to see in front of you now the sun has set, but you stick to the trail and listen. You listen for the birds and cicadas &mdash; the life, blood, and death of the unending turn &mdash; the lapping sound of the water of the bay. You feel the heron ahead of you before you see it. They are perched on a foot of a mangrove, hidden neatly behind the polished leaves, but you can see the glimmering green and purple of its plumage. They regard you completely with penetrating yellow eyes as you walk ahead, and when you walk past them, you can hear the gentle flapping of wings and rustle of branches as it follows you deeper into the trail.&nbsp;</span></p>
+
+<p><span style="font-weight: 400;">The moonlight has been swallowed and you are completely alone. Your car, the roses &mdash; gone. You remain perfectly still until the darkness trains your eyes enough to see the room again. You remember the lamp on the bedside table and grope for the switch. It turns on but the darkness persists. You can feel the current passing through the cord from the outlet into the bulb. And you can feel the warmth of its light but still you sit in darkness. You can see just well enough to outline the four walls that is your world. You don&rsquo;t know this world, and you&rsquo;re already forgetting where you have come from.&nbsp;</span></p>
+
+<p><span style="font-weight: 400;">&ldquo;Excuse me&rdquo;</span></p>
+<p><span style="font-weight: 400;">The bartender still has his back to you but he acknowledges you with a slight tilt of his head.&nbsp;</span></p>
+<p><span style="font-weight: 400;">&ldquo;Do you know how to get to Coastal Bight from here?&rdquo;</span></p>
+<p><span style="font-weight: 400;">He turns around and you meet his eyes for the first time and lose yourself in their color &mdash; of the sand flats dotted between the islands you used to know well &mdash; and you see a vision of a long ago wreck. A small vessel with three souls. Two drunken, one innocent. All lost. You see the swallowing gulch of the sea and the movement of creatures on the bed.&nbsp;</span></p>
+<p><span style="font-weight: 400;">&ldquo;Coastal Bight? What do you know of Coastal Bight?&rdquo;</span></p>
+<p><span style="font-weight: 400;">The trail becomes enveloped in purple twilight &mdash; the canopy of the mangroves envelopes you further so you feel you are bound by something far beyond you. The bending nature of the trail and the diminishing light means you are walking almost blindly ahead. Still the heron follows you closely. You are unaware of any other living creatures around, but you know how little that means. The wind begins to pick up and with it comes the whistling song of the mangrove forest &mdash; the high pitch call in a language far older than you. Suddenly the heron moves and lands on your shoulder as you approach the next turn. You trust in what the heron is telling you; this is your final pass.&nbsp;</span></p>
+
+<p><span style="font-weight: 400;">Too late. You understand it all, finally, too late. The light from the lamp is shining now and it illuminates the room and you see the wallpaper &mdash; hundreds of pairs of eyes stitched together and moving as you move. The same sandy eyes. You see the same vision in every direction; thousands of legs and teeth and claws. You hear three screams for life just behind you, but as you turn to find them, to save those poor damned souls, the screams remain desperately out of reach. You turn and turn and you reach for the lamp but before you can heave it against the terrible eyes on the wall, the light dims and the eyes close. The moonlight is shining between the curtains again, though you never see it. You are already moving towards the door. You know there will be no sanctuary for you, but you must leave this room. When you open the door you are utterly destroyed. You are inspected, purely and completely &mdash; picked up, examined, absorbed. You have joined Being itself. You are now yet another hand clinging to its bark and branches trying to climb. You climb and climb until you reach your place at the height of what&rsquo;s been and you become yet another branch to be climbed. You have ceased.&nbsp;&nbsp;</span></p>
+
+<p><span style="font-weight: 400;">&ldquo;You do know there are easier ways, yes?&rdquo;</span></p>
+<p><span style="font-weight: 400;">&ldquo;Easier&hellip;&rdquo;, you say, not really listening. You still only have the vaguest idea why you are here. You don&rsquo;t truly understand where here is. This place feels familiar yet distant, as if you glimpsed it once through a painting and you and this man are playing the subjects to life. Yet you are being pulled to this Coastal Bight by an immense magnetism and you cannot deny it. You look up at the bartender and stare into those eyes &mdash; those eyes&hellip; which you have looked upon so many times; love and sorrow. Those eyes which alone capture and constrict your guilt. You start to say a name but the bartender stops you.&nbsp;</span></p>
+<p><span style="font-weight: 400;">&ldquo;Well, if you are so intent.&rdquo; He looks out of the window towards the setting sun, &ldquo;you best be going.&rdquo;</span></p>
+
+<p><span style="font-weight: 400;">With the heron as your steward, you make the turn and enter into a grove filled with light.&nbsp;</span></p>
+<p><span style="font-weight: 400;">&ldquo;No&hellip;no&rdquo;, you utter almost breathlessly as you begin to recognize the scene before you. In the grove, projected in light and mist above a pool of water, you see yourself, John, and Lily on your small sailing cruiser. John is at the helm, saying words that are lost in the wind. Lily is in the cabin below, listening, clutching her pillow tightly. You are at the bow, watching the clouds. The scene shifts and now you are standing next to John &mdash; you hold out your hand and feel the first drops of rain fall.&nbsp;</span></p>
+<p><span style="font-weight: 400;">&ldquo;What did I tell you,&rdquo; you say to your brother.&nbsp;</span></p>
+<p><span style="font-weight: 400;">&ldquo;You don&rsquo;t know shit,&rdquo; he scoffs.&nbsp;</span></p>
+<p><span style="font-weight: 400;">You&rsquo;ve known a lifetime of glares and insults for each other, but this is the culmination; years of resentment you each refuse to direct at the only other source. You watch Lily listen to it all as the rain begins to come down in sheets and the boat lists against the increasing waves. You&rsquo;re watching your own tragedy unfold at a glacial pace. You want to flee the grove but you won&rsquo;t abandon her again. She is the arresting figure in the middle of this scene of chaos standing at the edge of the cabin. You watch her step out, confused and scared, reaching for you. Reaching for John. You and John are helplessly fighting to keep the boat afloat and do not see her step out onto the deck. You see her look out around her, grasping wildly for something to hold. She&rsquo;s screaming your name and in this grove you let out a pained response, &ldquo;Lily, oh Lily!&rdquo; and those sightless eyes lock onto yours. In those eyes you can see the years of trust and love despite your continual, compounding failures. You see her follow your voice and reach out with both hands and you see yourself completely blind to the tragedy. The green heron soars from your shoulder and out of sight from you all. Lily says your name one final time and you see yourself turn just in time to see the splash of her entrance into the dark waters. Both of yourselves follow blindly into the depths. Above you, John has thrown a life ring overboard. </span></p>
+
+      </div>
+
+    </article>
+  </main>
+
+  <footer>
+    2026 Intracoastal Dispatch
+  </footer>
+
+</body>
+</html>
